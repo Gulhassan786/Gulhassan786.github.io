@@ -47,7 +47,7 @@
 
         @keyframes typing-cursor {
             from {
-                width: 5px;
+                width: 3px;
             }
 
             to {
@@ -59,12 +59,11 @@
 </head>
 
 <body>
-
     <!--===== HEADER =====-->
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <a href="#" class="nav__logo">Jhon Doe</a>
+                <a href="#" class="nav__logo">Gul Hassan</a>
             </div>
 
             <div class="nav__menu" id="nav-menu">
@@ -72,9 +71,12 @@
                     <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                     <li class="nav__item"><a href="#achiements" class="nav__link">Achiements</a></li>
-                    <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li class="nav__item"><a href="#portfolio" class="nav__link ">Portfolio</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    <li class="nav__item"><a href="https://drive.google.com/file/d/1z2RQt4IO_waeOVXOdLqpit4bY1H3Vm48/view?usp=sharing" class="nav__link">Download CV</a></li>
+                    <li class="nav__item">
+                        <a href="https://drive.google.com/file/d/1z2RQt4IO_waeOVXOdLqpit4bY1H3Vm48/view?usp=sharing" class="nav__link download-cv" target="_blank">CV <i class='bx bxs-download'></i></a>
+                    </li>
+
                 </ul>
             </div>
 
@@ -90,13 +92,12 @@
         <section class="home" id="home">
             <div class="home__container bd-grid">
                 <h1 class="home__title"><span>HE</span><br>LLO.</h1>
-
-                <h3 class="ml" style="color: white;font-size: 30px;">I am ML Engineer </h3>
+            
+                <h2 class="ml" style="color: white; padding-left: 10px;">I am ML Engineer</h2>
 
                 <div class="home__scroll">
                     <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt'></i>Scroll down</a>
                 </div>
-
                 <img src="assets/img/profileimg.png" alt="" class="home__img">
             </div>
         </section>
@@ -113,140 +114,263 @@
                 <div>
                     <h2 class="about__subtitle">I'am Gul Hassan</h2>
                     <!-- Element to contain animated typing -->
+                    <span id="typing-animation" style="color: rgb(0, 157, 255); font-size: 18px;"></span>
 
+                    <script>
+
+                        // Initialize the typing animation
+                        const typingAnimationElement = document.getElementById('typing-animation');
+
+                        // Create an array of typing text
+                        const typingTexts = [
+                            'ML Engineer  ',
+                            'DL Engineer  ',
+                            'Coder on LeetCode ',
+                            'Problem Solver',
+                            'Artical Writer ',
+                            'Critical Thinker'
+                        ];
+                        // Create a function to display the typing animation for a given text
+                        function playTypingAnimation(text) {
+                            // Loop through each character and add it to the element
+                            for (let i = 0; i < text.length; i++) {
+                                setTimeout(() => {
+                                    typingAnimationElement.textContent += text[i];
+                                }, i * 100); // Increase the delay to slow down the typing animation
+                            }
+
+                            // Once the animation is complete, toggle the cursor visibility
+                            setTimeout(() => {
+                                toggleCursor();
+                            }, text.length * 120);
+
+                            // Function to toggle cursor visibility
+                            function toggleCursor() {
+                                if (typingAnimationElement.textContent.endsWith('|')) {
+                                    typingAnimationElement.textContent = typingAnimationElement.textContent.slice(0, -1);
+                                } else {
+                                    typingAnimationElement.textContent += '|';
+                                }
+                            }
+
+                            // Restart the typing animation loop
+                            setTimeout(() => {
+                                typingAnimationElement.textContent = ''; // Clear the text
+                                playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]); // Start over with the next text
+                            }, (text.length + 1) * 120); // Wait for text to be fully typed before restarting
+                        }
+
+                        // Start the typing animation loop
+                        playTypingAnimation(typingTexts[0]);
+
+                    </script>
+
+                    <br>
+                    <br>
                     <p class="about__text">
-
-                        I am a graduate of Information Technology. As an AI enthusiast, it's quite fascinating to solve
+                       I am a graduate of Information Technology. As an AI enthusiast, it's quite fascinating to solve
                         real-world problems using Machine Learning and Deep Learing for good.
 
                         I have developed my skill set while working on different projects using ML and DL in addition I
-                        solve problems on LeetCode to improve my coding skills. I also write articles on Medium and
-                        LinkedIn moreover I regularly participate in hackathons and won 3 awards. Apart from that, I
-                        have developed leadership, communication, problem-solving, creativity, and teamwork skills.
-                        <br> <br>
-                        <b>Skills:</b> Machine Learning, Deep Learning, Analytics, Coding, & UI
+                        solve problems on <b>LeetCode</b>  to improve my coding skills.
+                        I also write articles on Medium and LinkedIn moreover I regularly participate in hackathons and
+                        won 3 awards. Apart from that, I have developed leadership,
+                        communication, problem-solving, creativity, and teamwork skills.
+                        <br><br>
+                        <b>Skills:</b> Machine Learnin, Deep Learning, HTML, CSS, <i>GpT</i>
+                        <br> 
+                        <br>
+                        <b>Major Courses:</b> Computer Vision, Data Science, DSA, Python, Web development, Android app development, 
+                        Statistics, Linear Algebra, Calculus, C++, Java, Assembly, Information Systems, & software engineering
                     </p>
-
                     <div class="about__social">
-                        <a href="https://www.linkedin.com/in/gul-hassan-7b188b202/" class="about__social-icon"
-                            target="blank"><i class='bx bxl-linkedin'></i></a>
-                        <a href="https://github.com/gulhassan786" class="about__social-icon" target="blank"><i
-                                class='bx bxl-github'></i></a>
-
+                        <a href="#" class="about__social-icon"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#" class="about__social-icon"><i class='bx bxl-github'></i></a>
+                        <a href="#" class="about__social-icon"><i class='bx bxl-twitter'></i></a>
                     </div>
+
                 </div>
 
             </div>
 
+            <a href="https://drive.google.com/file/d/1z2RQt4IO_waeOVXOdLqpit4bY1H3Vm48/view?usp=sharing" target="_blank"> <button class="contact__button">CV <i class='bx bxs-download' style="font-size: 18px;"></i> </button></a>
+
         </section>
 
-
+        <!-- Achiements section -->
         <section class="about section" id="achiements">
             <h2 class="section-title">Achiements</h2>
-
             <div class="about__container bd-grid">
 
-                <div>
-                    <h2 class="about__subtitle"><i class="bx bx-medal" style="font-size: 30px;"> </i>Finalist (2nd
-                        Place)</h2>
-                    <!-- Element to contain animated typing -->
-                    <p style="color: #5361FF;">WorldInnovationDay Hack</p>
-                    <p style="color: #5361FF;">Apr'22 - Mar'22</p>
-                    <p class="about__text">
-                        I was the analyst in the team. We had developed the app for the good of humanity
-                    </p>
-
-                    <div class="about__social">
-                        <a href="https://www.linkedin.com/in/gul-hassan-7b188b202/" class="about__social-icon"
-                            target="blank"><i class='bx bxs-videos'></i></a>
-                        <!-- <a href="https://github.com/gulhassan786" class="about__social-icon"  target="blank"><i class='bx bxl-github' ></i></a> -->
-                        <a href="https://au.badgr.com/public/assertions/Nn9MpxPVRW2-JIJMm2N3vQ?identity__email=gulhassanh49@gmail.com"
-                            class="about__social-icon" target="blank"><i class='bx bxs-badge-check'></i></a>
-
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bxs-medal" style="font-size: 30px;"></i>Finalist (2 place)
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">WorldInnovationDay Hack</span>
+                        </div>
+                        <div class="col"> <span style="color: #5965e9; text-align:right;">Apr'22 - Mar'22</span></div>
                     </div>
+
+                    <p class="about__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
+                        consectetur, architecto quas fugiat, iste inventore facere repellendus delectus id, vitae
+                        blanditiis.</p>
+
+                    <div class="row" style="display:flex;">
+                        <div class="col-4">
+                            <a href="http://github.com" target="_blank" rel="noopener noreferrer"><i
+                                    class="about__social-icon bx bxs-videos"
+                                    style="font-size: 30px; "></i></a>
+                        </div>
+                        <div class="col-4">
+                            <i class="about__social-icon bx bxl-github"
+                                style="font-size: 30px; "></i>
+                        </div>
+                        <div class="col-4">
+                            <i class='about__social-icon bx bxs-badge-check'  style="font-size: 30px; "></i>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- 2nd achiement -->
-
-                <div>
-                    <h2 class="about__subtitle"><i class="bx bx-medal" style="font-size: 30px;"> </i>Finalist (3rd
-                        Place)</h2>
-                    <!-- Element to contain animated typing -->
-                    <p style="color: #5361FF;">WorldInnovationDay Hack</p>
-                    <p style="color: #5361FF;">Apr'21 - Mar'21</p>
-                    <p class="about__text">
-                        I was the analyst in the team. We had developed the app for the good of humanity
-                    </p>
-
-                    <div class="about__social">
-                        <a href="https://www.linkedin.com/in/gul-hassan-7b188b202/" class="about__social-icon"
-                            target="blank"><i class='bx bxs-videos'></i></a>
-                        <a href="https://github.com/gulhassan786" class="about__social-icon" target="blank"><i
-                                class='bx bxl-github'></i></a>
-                        <a href="https://github.com/gulhassan786" class="about__social-icon" target="blank"><i
-                                class='bx bxs-badge-check'></i></a>
-
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bx-medal" style="font-size: 30px;"></i>Finalist (2 place)
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">WorldInnovationDay Hack</span>
+                        </div>
+                        <div class="col"> <span style="color: #5965e9; text-align:right;">Apr'22 - Mar'22</span></div>
                     </div>
+
+                    <p class="about__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
+                        consectetur, architecto quas fugiat, iste inventore facere repellendus delectus id, vitae
+                        blanditiis.</p>
+
+                        <div class="row" style="display:flex;">
+                            <div class="col-4">
+                                <a href="http://github.com" target="_blank" rel="noopener noreferrer"><i
+                                        class="about__social-icon bx bxs-videos"
+                                        style="font-size: 30px; "></i></a>
+                            </div>
+                            <div class="col-4">
+                                <i class="about__social-icon bx bxl-github"
+                                    style="font-size: 30px; "></i>
+                            </div>
+                            <div class="col-4">
+                                <i class='about__social-icon bx bxs-badge-check'  style="font-size: 30px; "></i>
+                            </div>
+                        </div>
+
+                </div>
+                <!-- Achiement 3rd -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bx-medal" style="font-size: larger;"></i>Finalist (2 place)
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col-6">
+                            <span style="color: #5965e9; text-align: center;">WorldInnovationDay Hack</span>
+                        </div>
+                        <div class="col-6"> <span style="color: #5965e9; text-align: center;">Apr'22 - Mar'22</span>
+                        </div>
+                    </div>
+
+                    <p class="about__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
+                        consectetur, architecto quas fugiat, iste inventore facere repellendus delectus id, vitae
+                        blanditiis.</p>
+
+                        <div class="row" style="display:flex;">
+                            <div class="col-4">
+                                <a href="http://github.com" target="_blank" rel="noopener noreferrer"><i
+                                        class="about__social-icon bx bxs-videos"
+                                        style="font-size: 30px; "></i></a>
+                            </div>
+                            <div class="col-4">
+                                <i class="about__social-icon bx bxl-github"
+                                    style="font-size: 30px; "></i>
+                            </div>
+                            <div class="col-4">
+                                <i class='about__social-icon bx bxs-badge-check'  style="font-size: 30px; "></i>
+                            </div>
+                        </div>
                 </div>
 
+                <!-- 4th achiement -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bx-medal" style="font-size: larger;"></i>Finalist (2 place)
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">WorldInnovationDay Hack</span>
+                        </div>
+                        <div class="col"> <span style="color: #5965e9; text-align:right;">Apr'22 - Mar'22</span></div>
+                    </div>
+
+                    <p class="about__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
+                        consectetur, architecto quas fugiat, iste inventore facere repellendus delectus id, vitae
+                        blanditiis.</p>
+
+                        <div class="row" style="display:flex;">
+                            <div class="col-4">
+                                <a href="http://github.com" target="_blank" rel="noopener noreferrer"><i
+                                        class="about__social-icon bx bxs-videos"
+                                        style="font-size: 30px; "></i></a>
+                            </div>
+                            <div class="col-4">
+                                <i class="about__social-icon bx bxl-github"
+                                    style="font-size: 30px; "></i>
+                            </div>
+                            <div class="col-4">
+                                <i class='about__social-icon bx bxs-badge-check'  style="font-size: 30px; "></i>
+                            </div>
+                        </div>
+
+                </div>
             </div>
 
         </section>
 
-
-
-
         <!--===== SKILLS =====-->
         <!-- <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
+            <h2 class="section-title">Skills</h2>
 
-                <div class="skills__container bd-grid">
-                    <div class="skills__box">
-                        <h3 class="skills__subtitle">Development</h3>
-                        <span class="skills__name">Html</span>
-                        <span class="skills__name">Css</span>
-                        <span class="skills__name">Javascript</span>
-                        <span class="skills__name">Scss</span>
-                        <span class="skills__name">React</span>
-                        <span class="skills__name">Vue</span>
-                        
-                        <h3 class="skills__subtitle">Design</h3>
-                        <span class="skills__name">Figma</span>
-                        <span class="skills__name">Adobe XD</span>
-                        <span class="skills__name">Photoshop</span>
+            <div class="skills__container bd-grid">
+                <div class="skills__box">
+                    <h3 class="skills__subtitle">Development</h3>
+                    <span class="skills__name">Html</span>
+                    <span class="skills__name">Css</span>
+                    <span class="skills__name">Javascript</span>
+                    <span class="skills__name">Scss</span>
+                    <span class="skills__name">React</span>
+                    <span class="skills__name">Vue</span>
 
-                        <h3 class="skills__subtitle">Machine Learning</h3>
-                        <span class="skills__name">Regression</span>
-                        <span class="skills__name">Decision trees</span>
-                        <span class="skills__name">Photoshop</span>
+                    <h3 class="skills__subtitle">Design</h3>
+                    <span class="skills__name">Figma</span>
+                    <span class="skills__name">Adobe XD</span>
+                    <span class="skills__name">Photoshop</span>
 
-                    </div>
-
-                    <div class="skills__img">
-                        <img src="assets/img/skill.jpg" alt="">
-                    </div>
                 </div>
-            </section> -->
+
+                <div class="skills__img">
+                    <img src="assets/img/skill.jpg" alt="">
+                </div>
+            </div>
+        </section> -->
 
         <!--===== PORTFOLIO =====-->
         <section class="portfolio section" id="portfolio">
             <h2 class="section-title">Portfolio</h2>
 
             <div class="portfolio__container bd-grid">
-
                 <div class="portfolio__img">
                     <img src="assets/img/work1.jpg" alt="">
 
                     <div class="portfolio__link">
-                        <a href="https://github.com/Gulhassan786/Sentiment-Analysis" class="portfolio__link-name"
-                            target="_blank">View details</a>
+                        <a href="#" class="portfolio__link-name">View details</a>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique reprehenderit quia pariatur
-                        fugit distinctio laudantium, iusto consequuntur eveniet eum ipsam inventore maiores hic fugiat.
-                        Vitae incidunt minus similique beatae assumenda.</p>
+
                 </div>
-
-
                 <div class="portfolio__img">
                     <img src="assets/img/work2.jpg" alt="">
 
@@ -254,7 +378,6 @@
                         <a href="#" class="portfolio__link-name">View details</a>
                     </div>
                 </div>
-
                 <div class="portfolio__img">
                     <img src="assets/img/work3.jpg" alt="">
 
@@ -299,30 +422,28 @@
                     <span class="contact__text">info.mail.com</span>
 
                     <h3 class="contact__subtitle">PHONE</h3>
-                    <span class="contact__text">xyz</span>
+                    <span class="contact__text">+20 999-999</span>
 
                     <h3 class="contact__subtitle">ADRESS</h3>
                     <span class="contact__text">My contry</span>
                 </div>
 
                 <div class="contact__form">
-                    <form id="FORM_ID" method="post" class="contact__form"
-                        action="https://script.google.com/macros/s/AKfycbyW--260EHKS9AWNol_jFS5WzjDzcGpjJZeZzXZTI_xjjTjOHmwDKSSxgp6jeBJO7Ck/exec">
-
-                        <div class="row"></div>
-                        <input id="Name" type="text" placeholder="Name" name="Name" class="contact__input" required>
-                        <input id="Email" type="email" placeholder="Email" name="Email" class="contact__input" required>
-
+                    <form id="FORM_ID" method="POST" class="contact__form" action="https://script.google.com/macros/s/AKfycbwbcQoptyB7GFCE7in7064vo9gbSvKjoucA_vE-y4UtvKFecME7X0gZtCQAl5lxzdZH/exec">
+                        
+                            <input id="Name" type="text" placeholder="Name" name="Name" class="contact__input" required>
+                            <input id="Email" type="email" placeholder="Email" name="Email" class="contact__input"
+                                required>
 
                         <textarea id="Message" name="Message" rows="10" class="contact__input"></textarea>
-                        <button type="submit" class="contact__button">Send</button>
+                        <button type="submit" class="contact__button">Submit</button>
                     </form>
 
                     <script type="text/javascript">
-                        window.addEventListener("DOMContentLoaded", function () {
+                        window.addEventListener("DOMContentLoaded", function() {
                             const yourForm = document.getElementById('FORM_ID');
                             if (yourForm) {
-                                yourForm.addEventListener("submit", function (e) {
+                                yourForm.addEventListener("submit", function(e) {
                                     e.preventDefault();
                                     const data = new FormData(yourForm);
                                     const action = e.target.action;
@@ -330,44 +451,46 @@
                                         method: 'POST',
                                         body: data,
                                     })
-                                        .then(response => {
-                                            if (response.ok) {
-                                                // Reset form fields
-                                                yourForm.reset();
-                                                alert("Form submitted successfully!");
-                                            } else {
-                                                alert("Failed to submit form. Please try again.");
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('Error:', error);
-                                            showAlert("Sent sucessfuly!");
+                                    .then(response => {
+                                        if (response.ok) {
+                                            // Reset form fields
                                             yourForm.reset();
-                                        });
+                                            alert("Form submitted successfully!");
+                                        } else {
+                                            alert("Failed to submit form. Please try again.");
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        showAlert("Sent sucessfuly!");
+                                        yourForm.reset();
+                                    });
                                 });
                             } else {
                                 console.error('Form element with ID "FORM_ID" not found.');
                             }
                         });
-
+    
                         function showAlert(message) {
-                            const alertElement = document.createElement('div');
-                            alertElement.classList.add('alert');
-                            alertElement.textContent = message;
-                            document.body.appendChild(alertElement);
-
-                            // Automatically dismiss the alert after 3 seconds (3000 milliseconds)
-                            setTimeout(function () {
-                                if (alertElement) {
-                                    alertElement.remove();
-                                }
-                            }, 6000);
-                        }
-
-                    </script>
+    const alertElement = document.createElement('div');
+    alertElement.classList.add('alert');
+    alertElement.textContent = message;
+    document.body.appendChild(alertElement);
+    
+    // Automatically dismiss the alert after 3 seconds (3000 milliseconds)
+    setTimeout(function() {
+        if (alertElement) {
+            alertElement.remove();
+        }
+    }, 6000);
+    }
+    
+    </script>
+    
 
                 </div>
 
+                
             </div>
 
         </section>
@@ -377,9 +500,9 @@
     <footer class="footer section">
         <div class="footer__container bd-grid">
             <div class="footer__data">
-                <h2 class="footer__title">JHON DOE</h2>
+                <h2 class="footer__title">GUL HASSAN</h2>
 
-                <p class="footer__text">I'm Jhon Doe and this is my personal website</p>
+                <p class="footer__text">I'm Gul Hassan and this is my personal website</p>
             </div>
 
             <div class="footer__data">
@@ -387,7 +510,7 @@
                 <ul>
                     <li><a href="#home" class="footer__link">Home</a></li>
                     <li><a href="#about" class="footer__link">About</a></li>
-                    <li><a href="#skills" class="footer__link">Skills</a></li>
+                    <li><a href="#achiements" class="footer__link">Achiements</a></li>
                     <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
                     <li><a href="#Contact" class="footer__link">Contact</a></li>
                 </ul>
@@ -395,25 +518,15 @@
 
             <div class="footer__data">
                 <h2 class="footer__title">FOLLOW</h2>
-                <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
-                <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-github'></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-linkedin'></i></a>
                 <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
             </div>
 
 
         </div>
     </footer>
-    <!-- <script>
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyI-0MK4xy9b-ku_JzQb8syRExpRjHET8gQ9YBQcCk/dev'
-            const form = document.forms['google-sheet']
-          
-            form.addEventListener('submit', e => {
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
-                .catch(error => console.error('Error!', error.message))
-            })
-          </script> -->
+
 
     <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
