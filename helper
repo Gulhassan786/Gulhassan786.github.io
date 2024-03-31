@@ -1,0 +1,184 @@
+## create link in nav following is css for it####
+.download-cv {
+    color: #fff; /* Text color */
+    border: 2px solid #fff; /* White border */
+    padding: 8px 16px; /* Adjust padding as needed */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.download-cv:hover {
+    background-color: #fff; /* White background on hover */
+    color: #000; /* Text color on hover */
+}
+
+## Typing animation code ###
+ <!-- Element to contain animated typing -->
+                    <span id="typing-animation" style="color: rgb(0, 157, 255); font-size: 18px;"></span>
+
+                    <script>
+
+                        // Initialize the typing animation
+                        const typingAnimationElement = document.getElementById('typing-animation');
+
+                        // Create an array of typing text
+                        const typingTexts = [
+                            'ML Engineer  ',
+                            'DL Engineer  ',
+                            'Coder on LeetCode ',
+                            'Problem Solver',
+                            'Artical Writer ',
+                            'Critical Thinker'
+                        ];
+                        // Create a function to display the typing animation for a given text
+                        function playTypingAnimation(text) {
+                            // Loop through each character and add it to the element
+                            for (let i = 0; i < text.length; i++) {
+                                setTimeout(() => {
+                                    typingAnimationElement.textContent += text[i];
+                                }, i * 100); // Increase the delay to slow down the typing animation
+                            }
+
+                            // Once the animation is complete, toggle the cursor visibility
+                            setTimeout(() => {
+                                toggleCursor();
+                            }, text.length * 120);
+
+                            // Function to toggle cursor visibility
+                            function toggleCursor() {
+                                if (typingAnimationElement.textContent.endsWith('|')) {
+                                    typingAnimationElement.textContent = typingAnimationElement.textContent.slice(0, -1);
+                                } else {
+                                    typingAnimationElement.textContent += '|';
+                                }
+                            }
+
+                            // Restart the typing animation loop
+                            setTimeout(() => {
+                                typingAnimationElement.textContent = ''; // Clear the text
+                                playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]); // Start over with the next text
+                            }, (text.length + 1) * 120); // Wait for text to be fully typed before restarting
+                        }
+
+                        // Start the typing animation loop
+                        playTypingAnimation(typingTexts[0]);
+
+                    </script>
+                    
+                    
+## CSS to create card like desing for achiements ## 
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(121, 119, 119, 0.697);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+### About data ####
+
+ am a graduate of Information Technology. As an AI enthusiast, it's quite fascinating to solve real-world problems using Machine Learning and Deep Learing for good.
+
+I have developed my skill set while working on different projects using ML and DL in addition I solve problems on LeetCode to improve my coding skills. I also write articles on Medium and LinkedIn moreover I regularly participate in hackathons and won 3 awards. Apart from that, I have developed leadership, communication, problem-solving, creativity, and teamwork skills.
+
+Achievements:
+WorldInnovationDay Hack 2022,2021 Finalist, RunnerUp | FormulaAI 2022 Finalist | FYP 2nd Place
+Skills:
+Machine Learning, Deep Learning, Analytics, Coding, & UI
+Tools & Tech:
+Python, HTML, CSS, Flask, Ubuntu, Google Sheets, Colab, Anaconda, & VS code
+Major Courses:
+Computer Vision, Data Science, DSA, Python, Web development, Android app development, Statistics, Linear Algebra, Calculus, C++, Java, Assembly, Information Systems, & software engineering              
+                    
+ 
+ 
+ #### JS Script for form ###
+
+                         <script type="text/javascript">
+                            window.addEventListener("DOMContentLoaded", function() {
+                                const yourForm = document.getElementById('FORM_ID');
+                                if (yourForm) {
+                                    yourForm.addEventListener("submit", function(e) {
+                                        e.preventDefault();
+                                        const data = new FormData(yourForm);
+                                        const action = e.target.action;
+                                        fetch(action, {
+                                            method: 'POST',
+                                            body: data,
+                                        })
+                                        .then(response => {
+                                            if (response.ok) {
+                                                // Reset form fields
+                                                yourForm.reset();
+                                                alert("Form submitted successfully!");
+                                            } else {
+                                                alert("Failed to submit form. Please try again.");
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                            showAlert("Sent sucessfuly!");
+                                            yourForm.reset();
+                                        });
+                                    });
+                                } else {
+                                    console.error('Form element with ID "FORM_ID" not found.');
+                                }
+                            });
+
+                            function showAlert(message) {
+        const alertElement = document.createElement('div');
+        alertElement.classList.add('alert');
+        alertElement.textContent = message;
+        document.body.appendChild(alertElement);
+        
+        // Automatically dismiss the alert after 3 seconds (3000 milliseconds)
+        setTimeout(function() {
+            if (alertElement) {
+                alertElement.remove();
+            }
+        }, 6000);
+    }
+
+    </script>
+ 
+ 
+ ## alert style ##
+
+
+.alert {
+    position:fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0aa33a;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: opacity 1s;
+    z-index: 1000;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
