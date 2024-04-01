@@ -70,12 +70,12 @@
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#achiements" class="nav__link">Achivements</a></li>
+                    <li class="nav__item"><a href="#achiements" class="nav__link">Resume</a></li>
                     <li class="nav__item"><a href="#portfolio" class="nav__link ">Portfolio</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                     <li class=" nav__item">
                         <a href="https://drive.google.com/file/d/1z2RQt4IO_waeOVXOdLqpit4bY1H3Vm48/view?usp=sharing"
-                            class="download-cv nav__link " target="_blank">CV <i class='bx bxs-download'></i></a>
+                            class=" download__cv" target="_blank">CV <i class='bx bxs-download bx-tada'></i></a>
                     </li>
 
                 </ul>
@@ -105,7 +105,7 @@
 
         <!--===== ABOUT =====-->
         <section class="about section" id="about">
-            <h2 class="section-title">About</h2>
+            <h2 class="section-title"> <i class='bx bxs-user '></i> <span></span>About</h2>
 
             <div class="about__container bd-grid">
                 <div class="about__img">
@@ -115,7 +115,7 @@
                 <div>
                     <h2 class="about__subtitle">I'am Gul Hassan</h2>
                     <!-- Element to contain animated typing -->
-                    <span class="ani" id="typing-animation" style="color: rgba(0, 0, 0, 0.69); font-size: 18px;"></span>
+                    <span class="ani" id="typing-animation" style="color: rgba(0, 0, 0, 0.69); "></span>
 
                     <script>
 
@@ -185,11 +185,11 @@
                         Python, HTML, CSS, Flask, Ubuntu, Google Sheets, Colab, Anaconda, & VS code
                     </p>
                     <div class="about__social">
-                        <a href="#" class="about__social-icon"><i class='bx bxl-linkedin'
-                                style="font-size: 28px;"></i></a>
-                        <a href="#" class="about__social-icon"><i class='bx bxl-github'
-                                style="font-size: 28px;"></i></a>
-                        <!-- <a href="#" class="about__social-icon"><i class='bx bxl-twitter'></i></a> -->
+                        <a href="#" class=""><i class='about__social-icon bx bxl-linkedin bx-tada-hover'
+                                style="font-size: 25px;"></i></a>
+                        <a href="#" class=""><i class='about__social-icon bx bxl-github bx-tada-hover'
+                                style="font-size: 25px;"></i></a>
+                        <a href="#" class="" style="font-size: 25px;"><i class='about__social-icon bx bxl-twitter bx-tada-hover'></i></a>
                     </div>
 
                 </div>
@@ -197,18 +197,34 @@
             </div>
 
             <a href="https://drive.google.com/file/d/1z2RQt4IO_waeOVXOdLqpit4bY1H3Vm48/view?usp=sharing"
-                target="_blank"> <button class="contact__button">CV <i class='bx bxs-download'
-                        style="font-size: 18px;"></i> </button></a>
+                target="_blank"> <button class="contact__button">CV 
+                    <i class='bx bxs-download bx-tada'style="font-size: 18px;"></i> </button></a>
 
         </section>
 
         <!-- Achiements section -->
         <section class="about section" id="achiements">
-            <h2 class="section-title">Achivements</h2>
+            <h2 class="section-title"><i class="bx bxs-award " ></i>Achivements</h2>
             <div class="about__container bd-grid">
 
                 <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bxs-medal" style="font-size: 30px;"></i>Finalist (2 place)
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada"></i>FYP (2nd Place)
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">University Of Sindh</span>
+                        </div>
+                        <div class="col"> <span style="color: #5965e9; text-align:right;">Jan'24 - Feb'24</span></div>
+                    </div>
+                   
+                    <p class="about__text">
+                        Developed a bird song classification system using a CNN model built from scratch in TensorFlow. Leveraged librosa for audio pre-processing and feature extraction, while the model itself utilized convolutional layers for in-depth analysis and achieved robust classification
+                        through dropout layers and a final softmax layer. 
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada"></i>Finalist (2 place)
                     </h2>
                     <div class="row hack" style="display:block;">
                         <div class="col">
@@ -216,21 +232,20 @@
                         </div>
                         <div class="col"> <span style="color: #5965e9; text-align:right;">Apr'22 - Mar'22</span></div>
                     </div>
-
-                    <p class="about__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
-                        consectetur, architecto quas fugiat, iste inventore facere repellendus delectus id, vitae
-                        blanditiis.</p>
+                   
+                    <p class="about__text">Analyzed the disaster data (floods, tornadoes) using Numpy, Pandas, Matplotlib, and Seaborn to 
+                        create impactful reports revealing trends and human cost of disasters (number of people severely/partially affected)</p>
 
                     <div class="row" style="display:flex;">
-                        <div class="col-4">
-                            <a href="http://github.com" target="_blank" rel="noopener noreferrer"><i
-                                    class="about__social-icon bx bxs-videos" style="font-size: 30px; "></i></a>
+                        <div class="col-6">
+                            <a href="https://www.youtube.com/live/PekZczFhDi4?si=MWKkObYGxrnk0Oyy&t=1630" target="_blank" rel="noopener noreferrer"><i
+                                    class="about__social-icon bx bxs-videos bx-tada-hover" ></i></a>
                         </div>
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
-                        </div>
-                        <div class="col-4">
-                            <i class='about__social-icon bx bxs-badge-check' style="font-size: 30px; "></i>
+                        </div> -->
+                        <div class="col-6">
+                            <a href="https://au.badgr.com/public/assertions/5ERL7-jGTMenN76TLHYq6g?identity__email=gulhassanh49@gmail.com" target="_blank"><i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a>
                         </div>
                     </div>
 
@@ -238,93 +253,372 @@
 
                 <!-- 2nd achiement -->
                 <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bx-medal" style="font-size: 30px;"></i>Finalist (2 place)
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>Finalist (3rd place)
                     </h2>
                     <div class="row hack" style="display:block;">
                         <div class="col">
-                            <span style="color: #5965e9; text-align: left;">WorldInnovationDay Hack</span>
+                            <span style="color: #5965e9; text-align: left;">FormulaAI Hack</span>
                         </div>
                         <div class="col"> <span style="color: #5965e9; text-align:right;">Apr'22 - Mar'22</span></div>
                     </div>
 
-                    <p class="about__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
-                        consectetur, architecto quas fugiat, iste inventore facere repellendus delectus id, vitae
-                        blanditiis.</p>
-
+                    <p class="about__text" style="margin-top: 10px;">
+                       1. Employed data pre-processing techniques such as feature engineering, null value handling, and text preprocessing. <br>
+                       2. Trained the ML model on historical race data to predict race outcomes based on weather, track characteristics, and past performance.
+                    </p>
+                    
                     <div class="row" style="display:flex;">
-                        <div class="col-4">
-                            <a href="http://github.com" target="_blank" rel="noopener noreferrer"><i
-                                    class="about__social-icon bx bxs-videos" style="font-size: 30px; "></i></a>
+                        <div class="col-6">
+                            <a href="https://www.youtube.com/watch?v=2yS0BoQS-3Q" target="_blank" rel="noopener noreferrer"><i
+                                    class="about__social-icon bx bxs-videos bx-tada-hover" ></i></a>
                         </div>
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
-                        </div>
-                        <div class="col-4">
-                            <i class='about__social-icon bx bxs-badge-check' style="font-size: 30px; "></i>
+                        </div> -->
+                        <div class="col-6">
+                            <a href="https://au.badgr.com/public/assertions/TeMHvYAKQTaUC5CP2eYBAQ" target="_blank"><i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a>
                         </div>
                     </div>
 
                 </div>
                 <!-- Achiement 3rd -->
                 <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bx-medal" style="font-size: larger;"></i>Finalist (2 place)
-                    </h2>
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>RunnerUp</h2>
                     <div class="row hack" style="display:block;">
                         <div class="col-6">
                             <span style="color: #5965e9; text-align: center;">WorldInnovationDay Hack</span>
                         </div>
-                        <div class="col-6"> <span style="color: #5965e9; text-align: center;">Apr'22 - Mar'22</span>
+                        <div class="col-6"> <span style="color: #5965e9; text-align: center;">Apr'21 - Mar'21</span>
                         </div>
                     </div>
-
-                    <p class="about__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
-                        consectetur, architecto quas fugiat, iste inventore facere repellendus delectus id, vitae
-                        blanditiis.</p>
+                
+                    <p class="about__text">
+                        Leveraged Data science experiences to create a model to help reduce hunger by
+                        analyzing data and how food is wasted and not reaching needy people. We were in the hackathon.
+                    </p>
 
                     <div class="row" style="display:flex;">
-                        <div class="col-4">
-                            <a href="http://github.com" target="_blank" rel="noopener noreferrer"><i
-                                    class="about__social-icon bx bxs-videos" style="font-size: 30px; "></i></a>
+                        <div class="col-6">
+                            <a href="https://www.youtube.com/live/EpF-33rksoU?si=fbBiE135TK9aM7jY&t=1525" target="_blank" rel="noopener noreferrer"><i
+                                    class="about__social-icon bx bxs-videos bx-tada-hover"></i></a>
                         </div>
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
-                        </div>
-                        <div class="col-4">
-                            <i class='about__social-icon bx bxs-badge-check' style="font-size: 30px; "></i>
+                        </div> -->
+                        <div class="col-6">
+                            <a href="https://au.badgr.com/public/assertions/Nn9MpxPVRW2-JIJMm2N3vQ?identity__email=gulhassanh49@gmail.com" target="_blank"><i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a>
+                        
                         </div>
                     </div>
                 </div>
 
-                <!-- 4th achiement -->
+               
+                <!-- 4th card -->
+
                 <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bx-medal" style="font-size: larger;"></i>Finalist (2 place)
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>Scholerships</h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col-12">
+                            <span style="color: #5965e9; text-align: center;">HEC and PM</span>
+                        </div>
+                        <!-- <div class="col-6"> <span style="color: #5965e9; text-align: center;"></span>
+                        </div> -->
+                    </div>
+                
+                    <p class="about__text">
+                       <b>1. </b> Secured Need-Based Scholarship (BS IT, Year 3) - Higher Education Commission (HEC) <br>
+                       <b>2. </b> Awarded a Laptop Through the Prime Minister's Scheme - Top 20 in Class
+
+                    </p>
+                </div>
+            </div>
+
+
+
+<!-- Education -->
+
+            <h2 class="section-title"><i class="bx bxs-book " ></i>Education</h2>
+            <div class="about__container bd-grid">
+
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bxs-graduation bx-tada" ></i>BS Information Technology </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">University Of Sindh</span>
+                        </div>
+                        <div class="col"> <span style="color: #5965e9; text-align:right;">Jan'20 - Feb'24</span></div>
+                    </div>
+                    <p class="about__text">
+                        <b>Expected GPA 3.3</b> <br>
+                        <b>Elective courses:</b> Computer Vision, Data Science, DSA, Python, Web development, Android app development, Statistics, Linear Algebra, Calculus, C++, Java, software engineering
+                    </p>
+
+                </div>
+
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx  bxs-graduation bx-tada" ></i>Higher Secondary School
                     </h2>
                     <div class="row hack" style="display:block;">
                         <div class="col">
-                            <span style="color: #5965e9; text-align: left;">WorldInnovationDay Hack</span>
+                            <span style="color: #5965e9; text-align: left;">Gov: Ali baba degree college</span>
                         </div>
-                        <div class="col"> <span style="color: #5965e9; text-align:right;">Apr'22 - Mar'22</span></div>
+                        <div class="col"> <span style="color: #5965e9; text-align:right;">Jan'17 - Dec'19</span></div>
+                    </div>
+                    <p class="about__text">
+                        <b>Pre-medical</b> <br>
+                        <!-- <b>Elective courses:</b> Computer Vision, Data Science, DSA, Python, Web development, Android app development, Statistics, Linear Algebra, Calculus, C++, Java, software engineering -->
+                    </p>
+
+                </div>
+
+            </div>
+                <!-- Experience -->
+
+                <h2 class="section-title"><i class="bx bxs-pin " ></i>Experience</h2>
+                <div class="about__container bd-grid">
+    
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>Regional Ambassador
+                        </h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Hackmakers</span>
+                            </div>
+                            <div class="col"> <span style="color: #5965e9; text-align:right;">Apr'22 - May'22</span></div>
+                        </div>
+                       
+                        <p class="about__text">
+                            <b>1.</b> Served as regional ambassador from Pakistan <br>
+                            <b>2.</b> Signed MoUs between Hackmakers, 2+ universities, 2 student clubs/organizations, and 2+ companies
+                            
+                        </p>
+    
                     </div>
 
-                    <p class="about__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
-                        consectetur, architecto quas fugiat, iste inventore facere repellendus delectus id, vitae
-                        blanditiis.</p>
+    
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>Data Analyst
+                        </h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Fiverr</span>
+                            </div>
+                            <div class="col"> <span style="color: #5965e9; text-align:right;">Dec’20 – Dec’21</span></div>
+                        </div>
+                       
+                        <p class="about__text">
+                           <b>1.</b> Collaborated with international clients on 2+ analytic projects <br>
+                           <b>2.</b> Developed dashboards and reports using Google spreadsheet and Google Data Studio
 
-                    <div class="row" style="display:flex;">
-                        <div class="col-4">
-                            <a href="http://github.com" target="_blank" rel="noopener noreferrer"><i
-                                    class="about__social-icon bx bxs-videos" style="font-size: 30px; "></i></a>
+                        </p>
+    
+                    </div>
+    
+                    <!-- 2nd achiement -->
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada" ></i>Moderator and Trainer
+                        </h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">iCode Guru, USA</span>
+                            </div>
+                            <div class="col"> <span style="color: #5965e9; text-align:right;">Dec’20 – June’22</span></div>
                         </div>
-                        <div class="col-4">
-                            <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
-                        </div>
-                        <div class="col-4">
-                            <i class='about__social-icon bx bxs-badge-check' style="font-size: 30px; "></i>
-                        </div>
+    
+                        <p class="about__text" style="margin-top: 10px;">
+                           <b>1. </b> Taught data analysis using Google spreadsheets, <a href="https://web.facebook.com/photo.php?fbid=320120893452731&set=t.100063644695494&type=3" style="color:#5361FF;">Data Analysis1</a> ,<a href="https://web.facebook.com/photo/?fbid=285552163576271&set=pb.100063644695494.-2207520000" style="color:#5361FF;">DA2</a>  <br>
+                           <b>2. </b> Instructed in <a href="https://web.facebook.com/photo/?fbid=293250509171042&set=pb.100063644695494.-2207520000" style="color:#5361FF;">Python</a>  course from basics to medium along with problem-solving from leetcode <br>
+                           <b>3. </b>  Conducted workshops on Python, Data Analysis, Vscode, Git, and GitHub <br>
+                           <b>4. </b> Managed workshops as a lead such as DSA, <a href="https://web.facebook.com/photo/?fbid=327509042411855&set=pb.100063644695494.-2207520000" style="color:#5361FF;"> CV</a>, ML, <a href="https://web.facebook.com/photo/?fbid=324780862986734&set=pb.100063644695494.-2207520000" style="color:#5361FF;"> Data manipulation</a>, <a href="https://web.facebook.com/photo/?fbid=334381345360019&set=pb.100063644695494.-2207520000" style="color:#5361FF;"> Data Analysis</a>, <a href="https://web.facebook.com/photo/?fbid=338942191570601&set=pb.100063644695494.-2207520000" style="color:#5361FF;">EDA</a>  <br>
+                        </p>
+                            
                     </div>
 
                 </div>
-            </div>
+
+
+
+
+                <h2 class="section-title"><i class='bx  bxs-book-open' ></i> <span></span>MOOCs</h2>
+                <div class="about__container bd-grid">
+                    
+                    <!-- 1st course -->
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-tada bx-book-reader"></i>Stat 453 Introduction to deep learning and generative models</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;"> <a href="https://pages.stat.wisc.edu/~sraschka/teaching/stat453-ss2020/" style="color: #5965e9;">UW-Madison</a></span>
+                            </div>
+                
+                        </div>
+    
+                    </div>
+
+
+                    <!-- 2nd course -->
+
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-tada bx-book-reader"></i>Prompt Engineering</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;"> <a href="https://www.deeplearning.ai/" style="color: #5965e9;">deeplearning.ai</a></span>
+                            </div>
+                
+                        </div>
+    
+                    </div>
+                
+                    <!-- 3rd course -->
+
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-tada bx-book-reader"></i>Machine Learning</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;"> Youtube, iCodeGuru, Kaggle</span>
+                            </div>
+                
+                        </div>
+    
+                    </div>
+
+        </section>
+
+
+
+
+
+        
+        <!-- Portfolio section-->
+        <section class="about section" id="portfolio">
+
+            <h2 class="section-title"><i class="bx bxs-card "></i> <span></span>Portfolio</h2>
+            <div class="about__container bd-grid">
+                
+
+                <!-- 1st card project -->
+
+                <div class="card">
+
+                    <div class="portfolio__img">
+                        <img src="assets/img/voice.jpg" alt="">
+                        <a href="https://github.com/Gulhassan786/Sentiment-Analysis" class="portfolio__link-name" target="_blank">
+                        <div class="portfolio__link">
+                            Code isn't uploaded
+                        </div>
+                    </a>
+                    </div> <br>
+                    <h2 class="about__subtitle"><i class="bx bxs-music bx-tada"></i> <span></span>Bird's voice classification
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">TensorFlow | Pandas | Numpy | Librosa | Flask | HTML | CSS
+
+                            </span>
+                        </div>
+                        
+                    </div>
+                   
+                    <p class="about__text">
+                        <b>1. </b>Built a robust CNN model from scratch using Tensorflow for multiclass bird classification from the Kaggle bird's voice dataset.
+                        <br>
+                        <b>2. </b>Leveraged librosa to preprocess audio data (loading, normalization), generate mel spectrograms, and extract relevant features for deep learning models.<br>
+                        <b>3. </b>Employed 7 convolutional layers with increasing filter sizes for hierarchical feature extraction of audio. <br>
+                        <b>4. </b>Incorporated max-pooling layers (2x2) after each convolutional layer for dimensionality reduction and enhancing feature robustness.
+                        <br>
+                       <b>5.</b> Utilized dense layers with swish activation for non-linearity and softplus activation for the output layer. <br>
+                       <b>6. </b> Implemented dropout layers to prevent overfitting and improve generalization.
+                       <br>
+                       <b>7. </b> Employed a final dense layer with softmax activation for multi-class classification.
+                       <br>
+                        <b>8. </b>Constructed a user-friendly interface with Flask, HTML, and CSS, enabling users to interact with the bird song classification model.
+
+                        </p>
+
+                  <!-- <a href="https://github.com/Gulhassan786/Sentiment-Analysis"><i class="about__social-icon bx bxl-github" style="font-size: 30px;"></i></a>
+                  <a href="https://sentiment-detection.streamlit.app/"><i class="about__social-icon bx bx-globe" style="font-size: 30px;"></i></a> -->
+                </div>
+
+
+                <!-- 2nd project card -->
+
+                <div class="card">
+
+                    <div class="portfolio__img">
+                        <img src="assets/img/sentiment.jpg" alt="">
+                        <a href="https://github.com/Gulhassan786/Sentiment-Analysis" class="portfolio__link-name" target="_blank">
+                        <div class="portfolio__link">
+                           View Code
+                        </div></a>
+    
+                    </div> <br>
+                    <a href="https://github.com/Gulhassan786/Sentiment-Analysis" class="portfolio__link-name" target="_blank"> <h2 class="about__subtitle"><i class="bx bxs-happy bx-tada" ></i> <span></span>Sentiment-Analysis
+                    </h2></a>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">Sklearn| SVM  | Pandas | NLTK | Streamlit | Metrics | Tfidf | Pickle
+                            </span>
+                        </div>
+                        
+                    </div>
+                   
+                    <p class="about__text">
+                        <b>1. </b>Built an NLP pipeline using NLTK for text pre-processing <br>
+                        <b>2. </b>Removed numbers and special symbols using regular expressions <br>
+                        <b>3. </b>Eliminated stop words to enhance model accuracy <br>
+                        <b>4. </b>Employed TF-IDF vectorizer to create Bag-of-Words (BoW) <br>
+                       <b>5.</b> Implemented a Support Vector Machine (SVM) model with optimized hyperparameters for sentiment classification <br>
+                       <b>6. </b> Evaluated the model performance using metrics like confusion matrix, accuracy score, classification report, and Chohes’ kappa score <br>
+                       <b>7. </b> Leveraged Streamlit to create a user-friendly front-end interface for model interaction <br>
+                        <b>8. </b>Deployed the model on a Streamlit server for real-time sentiment analysis
+                        </p>
+
+                  <a href="https://github.com/Gulhassan786/Sentiment-Analysis"><i class="about__social-icon bx bxl-github bx-tada-hover" ></i></a>
+                  <a href="https://sentiment-detection.streamlit.app/"><i class="about__social-icon bx bx-globe bx-tada-hover" ></i></a>
+                </div>
+
+
+                    <!-- 3rd project card -->
+
+                    <div class="card">
+
+                        <div class="portfolio__img">
+                            <img src="assets/img/handdigit.png" alt="">
+                            <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation/tree/main" class="portfolio__link-name" target="_blank">
+                            <div class="portfolio__link">
+                               View Code
+                            </div></a>
+        
+                        </div> <br>
+                        <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation/tree/main" class="portfolio__link-name" target="_blank">  <h2 class="about__subtitle"><i class="bx bxs-edit-alt bx-tada" ></i> <span></span> Handwritten digit classification
+                        </h2> </a>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Sklearn| SVM  | Pandas | Streamlit | HuggingFace | Pickle
+                                </span>
+                            </div>
+                            
+                        </div>
+                       
+                        <p class="about__text">
+                            <b>1. </b>Preprocessed the MNIST dataset using techniques like normalization and image resizing
+                            <br>
+                            <b>2. </b>Removed numbers and special symbols using regular expressions <br>
+                            <b>3. </b>Developed Support Vector Machine (SVM) classifier to recognize handwritten digits <br>
+                            <b>4. </b>Implemented model persistence by pickling the trained SVM classifier for future use. <br>
+                           <b>5.</b> Evaluated model performance using accuracy score and confusion matrix
+                           <br>
+                           <b>6. </b> Employed Streamlit to create a user-friendly web interface for model interaction
+                           <br>
+                           <b>7. </b> Deployed the model on Hugging Face for accessibility
+                           <br>
+                        
+                            </p>
+    
+                      <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation/tree/main"><i class="about__social-icon bx bxl-github bx-tada-hover" ></i></a>
+                      <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation"><i class="about__social-icon bx bx-globe bx-tada-hover" ></i></a>
+                    </div>
+    
+               
 
         </section>
 
@@ -356,7 +650,7 @@
         </section> -->
 
         <!--===== PORTFOLIO =====-->
-        <section class="portfolio section" id="portfolio">
+        <!-- <section class="portfolio section" id="portfolio">
             <h2 class="section-title">Portfolio</h2>
 
             <div class="portfolio__container bd-grid">
@@ -405,24 +699,24 @@
                 </div>
             </div>
         </section>
-
+ -->
 
 
 
         <!--===== CONTACT =====-->
         <section class="contact section" id="contact">
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title"><i class='bx bxs-contact '></i> <span></span>Contact</h2>
 
             <div class="contact__container bd-grid">
                 <div class="contact__info">
-                    <h3 class="contact__subtitle">EMAIL</h3>
-                    <span class="contact__text">info.mail.com</span>
+                    <h3 class="contact__subtitle"><i class='bx bxs-envelope bx-tada' style="font-size: 20px;"> </i> <span></span>EMAIL</h3>
+                    <span class="contact__text">gulhassanh49@gmail.com</span>
 
-                    <h3 class="contact__subtitle">PHONE</h3>
-                    <span class="contact__text">+20 999-999</span>
+                    <h3 class="contact__subtitle"><i class='bx bxs-phone bx-tada' style="font-size: 20px;"></i> <span></span>PHONE</h3>
+                    <span class="contact__text">+92 (336) 856 3676</span>
 
-                    <h3 class="contact__subtitle">ADRESS</h3>
-                    <span class="contact__text">My contry</span>
+                    <h3 class="contact__subtitle"><i class='bx bxs-home bx-tada'style="font-size: 20px;"></i> <span></span>ADRESS</h3>
+                    <span class="contact__text">Sindh,Pakistan</span>
                 </div>
 
                 <div class="contact__form">
@@ -433,7 +727,7 @@
                         <input id="Email" type="email" placeholder="Email" name="Email" class="contact__input" required>
 
                         <textarea id="Message" name="Message" rows="10" class="contact__input"></textarea>
-                        <button type="submit" class="contact__button">Send</button>
+                        <button type="submit" class="contact__button"><i class='about__social-icon bx bx-send bx-tada'></i></button>
                     </form>
 
                     <script type="text/javascript">
@@ -515,9 +809,9 @@
 
             <div class="footer__data">
                 <h2 class="footer__title">FOLLOW</h2>
-                <a href="#" class="footer__social"><i class='bx bxl-github'></i></a>
-                <a href="#" class="footer__social"><i class='bx bxl-linkedin'></i></a>
-                <!-- <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a> -->
+                <a href="#" class="footer__social"><i class='bx bxl-github bx-tada-hover'></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-linkedin bx-tada-hover'></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-twitter bx-tada-hover'></i></a>
             </div>
 
 
