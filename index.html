@@ -7,8 +7,19 @@
   <link rel="icon" type="image/png" href="assets/img/profile-icon.png" />
   <link rel="apple-touch-icon" href="assets/img/profile-icon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <style>
     :root {
+      color-scheme: dark;
       --bg: #07050e;
       --bg-card: rgba(124,58,237,0.04);
       --bg-card-hover: rgba(124,58,237,0.10);
@@ -38,6 +49,7 @@
     }
 
     [data-theme="light"] {
+      color-scheme: light;
       --bg: #f6f4fc;
       --bg-card: rgba(255,255,255,0.75);
       --bg-card-hover: rgba(124,58,237,0.06);
@@ -911,7 +923,7 @@
     <div class="reveal">
       <div class="section-label">About Me</div>
       <h2 class="section-title">Who I Am</h2>
-      <p class="section-sub">A passionate AI/ML engineer and full-stack developer building impactful solutions.</p>
+      <p class="section-sub">A passionate AI/ML engineer building impactful solutions.</p>
     </div>
     <div class="about-grid">
       <div class="about-image reveal">
@@ -924,7 +936,7 @@
         <h3>Turning data into decisions, code into impact.</h3>
         <div class="tagline">BS Information Technology | University of Sindh, Jamshoro</div>
         <p>
-          I'm an AI/ML engineer and full-stack developer with a strong foundation in deep learning,
+          I'm an AI/ML engineer with a strong foundation in deep learning,
           computer vision, and data science. I hold a BS in Information Technology from the University of Sindh
           (GPA 3.35) and have experience building production-ready ML systems, web apps, and automated testing pipelines.
           I was selected as a Section Leader for Stanford's Code in Place in 2025 and again for 2026, and have won multiple hackathons.
@@ -1278,7 +1290,6 @@
     const phrases = [
       'AI & Machine Learning Engineer',
       'Deep Learning Specialist',
-      'Full Stack Developer',
       'Computer Vision Enthusiast',
       'Hackathon Champion'
     ];
@@ -1383,23 +1394,27 @@
     // ===== THEME TOGGLE =====
     const toggle = document.getElementById('themeToggle');
     const icon = toggle.querySelector('i');
-    const saved = localStorage.getItem('theme');
+    const root = document.documentElement;
 
-    if (saved === 'light') {
-      document.body.setAttribute('data-theme', 'light');
-      icon.className = 'fas fa-sun';
+    function setThemeIcon() {
+      icon.className = root.getAttribute('data-theme') === 'light' ? 'fas fa-sun' : 'fas fa-moon';
     }
+    setThemeIcon();
 
     toggle.addEventListener('click', () => {
-      const isLight = document.body.getAttribute('data-theme') === 'light';
-      if (isLight) {
-        document.body.removeAttribute('data-theme');
-        icon.className = 'fas fa-moon';
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.setAttribute('data-theme', 'light');
-        icon.className = 'fas fa-sun';
-        localStorage.setItem('theme', 'light');
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      setThemeIcon();
+    });
+
+    const colorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    colorScheme.addEventListener('change', (e) => {
+      let saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (err) {}
+      if (saved !== 'light' && saved !== 'dark') {
+        root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        setThemeIcon();
       }
     });
   </script>
