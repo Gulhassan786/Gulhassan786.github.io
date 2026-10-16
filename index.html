@@ -652,7 +652,7 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 50px;
     }
     .contact-info p {
@@ -723,45 +723,92 @@
       transform: translateY(-4px);
     }
 
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding: 16px 20px;
-      border-radius: 14px;
-      background: var(--input-bg);
-      border: 1px solid var(--input-border);
-      color: var(--text);
-      font-size: 15px;
-      font-family: inherit;
-      transition: border-color 0.3s;
-      outline: none;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: #7c3aed;
-      background: var(--input-focus-bg);
-    }
-    .contact-form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    .contact-form button {
-      align-self: flex-start;
-    }
-
     footer {
       position: relative;
       z-index: 1;
-      text-align: center;
-      padding: 40px 20px;
+      padding: 64px 24px 0;
       border-top: 1px solid var(--footer-border);
+      background: rgba(124, 58, 237, 0.06);
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+      text-align: left;
+    }
+    .footer-brand h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 340px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-col ul a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s, padding-left 0.3s;
+    }
+    .footer-col ul a:hover {
+      color: #7c3aed;
+      padding-left: 6px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--social-bg);
+      border: 1px solid var(--social-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-nav);
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .footer-social a:hover {
+      background: rgba(124, 58, 237, 0.15);
+      border-color: rgba(124, 58, 237, 0.3);
+      color: var(--text-nav-hover);
+      transform: translateY(-4px);
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 48px auto 0;
+      padding: 24px 0;
+      border-top: 1px solid var(--footer-border);
+      text-align: center;
       color: var(--footer-text);
       font-size: 14px;
-      background: rgba(124, 58, 237, 0.12);
     }
     footer .heart { color: #ec4899; }
 
@@ -827,6 +874,7 @@
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-image .avatar { max-width: 220px; font-size: 80px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero-buttons .btn { padding: 12px 24px; font-size: 13px; }
       .exp-item .exp-header { flex-direction: column; gap: 4px; }
     }
@@ -1182,13 +1230,6 @@
           </div>
         </div>
         <div class="contact-item">
-          <div class="icon"><i class="fas fa-phone"></i></div>
-          <div class="info">
-            <label>Phone</label>
-            <span><a href="tel:+923482920106">+92 (348) 2920 106</a></span>
-          </div>
-        </div>
-        <div class="contact-item">
           <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
           <div class="info">
             <label>Location</label>
@@ -1198,22 +1239,39 @@
         <div class="social-links">
           <a href="https://github.com/Gulhassan786" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/gul-hassan-7b188b202/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://gulhassan786.github.io/" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
-          <a href="mailto:gul.hassan.h43@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
-      <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Thanks for reaching out, Gul Hassan will get back to you soon!');">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <input type="text" placeholder="Subject" />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
-      </form>
     </div>
   </section>
 
   <footer>
-    &copy; 2026 Gul Hassan. Built with <span class="heart">&hearts;</span> for innovation
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Gul Hassan</h3>
+        <p>AI & Machine Learning Engineer building intelligent systems and delightful digital experiences. Always open to new opportunities and collaborations.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#awards">Achievements</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <div class="footer-social">
+          <a href="https://github.com/Gulhassan786" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/gul-hassan-7b188b202/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://medium.com/@gulhassanh49" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Gul Hassan. Built with <span class="heart">&hearts;</span> for innovation
+    </div>
   </footer>
 
   <script>
