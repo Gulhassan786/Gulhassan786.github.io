@@ -1,947 +1,1350 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gul Hassan | Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/img/profile-icon.png" />
+  <link rel="apple-touch-icon" href="assets/img/profile-icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #07050e;
+      --bg-card: rgba(124,58,237,0.04);
+      --bg-card-hover: rgba(124,58,237,0.10);
+      --text: #f0eff5;
+      --text-muted: #8b8797;
+      --text-dim: #9f9aab;
+      --text-nav: #a8a2b8;
+      --text-nav-hover: #fff;
+      --border: rgba(124,58,237,0.10);
+      --border-hover: rgba(124,58,237,0.30);
+      --scrollbar-track: #07050e;
+      --nav-bg: rgba(7,5,14,0.88);
+      --navbar-bg: rgba(15, 10, 30, 0.92);
+      --btn-outline-color: #f0eff5;
+      --btn-outline-border: rgba(124,58,237,0.25);
+      --input-bg: rgba(124,58,237,0.06);
+      --input-border: rgba(124,58,237,0.15);
+      --input-focus-bg: rgba(124,58,237,0.08);
+      --footer-border: rgba(124,58,237,0.08);
+      --footer-text: #6b657a;
+      --social-bg: rgba(124,58,237,0.05);
+      --social-border: rgba(124,58,237,0.12);
+      --scroll-color: #5f5970;
+      --mouse-border: rgba(124,58,237,0.25);
+      --shadow-color: rgba(0,0,0,0.6);
+      --card-shadow: rgba(124,58,237,0.15);
+    }
 
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    [data-theme="light"] {
+      --bg: #f6f4fc;
+      --bg-card: rgba(255,255,255,0.75);
+      --bg-card-hover: rgba(124,58,237,0.06);
+      --text: #1a1a2e;
+      --text-muted: #6b657a;
+      --text-dim: #55505f;
+      --text-nav: #55505f;
+      --text-nav-hover: #1a1a2e;
+      --border: rgba(124,58,237,0.12);
+      --border-hover: rgba(124,58,237,0.25);
+      --scrollbar-track: #e4e0ee;
+      --nav-bg: rgba(246,244,252,0.90);
+      --navbar-bg: rgba(246,244,252,0.90);
+      --btn-outline-color: #1a1a2e;
+      --btn-outline-border: rgba(124,58,237,0.20);
+      --input-bg: rgba(255,255,255,0.85);
+      --input-border: rgba(124,58,237,0.15);
+      --input-focus-bg: rgba(124,58,237,0.04);
+      --footer-border: rgba(124,58,237,0.08);
+      --footer-text: #8b8797;
+      --social-bg: rgba(255,255,255,0.7);
+      --social-border: rgba(124,58,237,0.12);
+      --scroll-color: #8b8797;
+      --mouse-border: rgba(124,58,237,0.20);
+      --shadow-color: rgba(124,58,237,0.08);
+      --card-shadow: rgba(124,58,237,0.10);
+    }
 
-    <!-- ===== BOX ICONS ===== -->
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-    <link type="image/png"  rel="icon" href="assets\img\profile-icon.png">
-    <title>Gul Hassan </title>
-    
-    <style>
-        /* Animation styles */
-        #typing-animation {
-            position: relative;
-            font-size: 20px;
-            font-weight: bold;
-            color: #5361FF;
-            overflow: hidden;
-            white-space: nowrap;
-            animation: typing 3s steps(20, end) infinite;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        #typing-animation:before {
-            content: "";
-            /* position: absolute; */
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background-color: #ccc;
-            animation: typing-cursor 0.5s ease-in-out infinite;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      transition: background 0.4s, color 0.4s;
+    }
 
-        @keyframes typing {
-            from {
-                width: 0;
-            }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #7c3aed, #ec4899); border-radius: 3px; }
 
-            to {
-                width: 100%;
-            }
-        }
 
-        @keyframes typing-cursor {
-            from {
-                width: 3px;
-            }
 
-            to {
-                width: 0;
-            }
-        }
-    </style>
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7c3aed, #ec4899, #f59e0b);
+      z-index: 200;
+      width: 0;
+      transition: width 0.1s linear;
+    }
 
+    .tilt-card {
+      transform-style: preserve-3d;
+      will-change: transform;
+      position: relative;
+      transition: box-shadow 0.3s;
+    }
+    .tilt-card .tilt-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s;
+      background: radial-gradient(circle at 50% 50%, rgba(124,58,237,0.15), transparent 70%);
+    }
+    .tilt-card:hover .tilt-glow {
+      opacity: 1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: var(--navbar-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.12);
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: var(--nav-bg);
+      padding: 12px 60px;
+      border-bottom-color: rgba(124, 58, 237, 0.2);
+      box-shadow: 0 2px 30px var(--shadow-color);
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo span {
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(124, 58, 237, 0.4);
+      box-shadow: 0 0 14px rgba(124, 58, 237, 0.3);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a { color: var(--text-nav); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.3s; position: relative; }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0;
+      height: 2px; background: linear-gradient(90deg, #7c3aed, #ec4899); transition: width 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-nav-hover); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-nav);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+      margin-left: 8px;
+    }
+    .theme-toggle:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      color: var(--text-nav-hover);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+    .hero-avatar {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 18%;
+      border: 3px solid rgba(124, 58, 237, 0.3);
+      box-shadow: 0 0 40px rgba(124, 58, 237, 0.2);
+      margin-bottom: 20px;
+      animation: fadeDown 0.8s ease;
+    }
+    .hero-avatar-placeholder {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 20px;
+      animation: fadeDown 0.8s ease;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 50px;
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      color: #7c3aed;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      animation: fadeDown 0.8s ease;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 80px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, #7c3aed, #ec4899, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease infinite;
+    }
+    .typewriter {
+      font-size: clamp(18px, 2.5vw, 26px);
+      color: var(--text-nav);
+      min-height: 1.5em;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+    .typewriter .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: #7c3aed;
+      margin-left: 4px;
+      animation: blink 0.8s step-end infinite;
+      vertical-align: text-bottom;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp 0.8s ease 0.6s both;
+    }
+    .btn {
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+      color: #fff;
+      box-shadow: 0 4px 25px rgba(124, 58, 237, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 40px rgba(124, 58, 237, 0.5);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--btn-outline-color);
+      border: 2px solid var(--btn-outline-border);
+    }
+    .btn-outline:hover {
+      border-color: #7c3aed;
+      color: var(--text-nav-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--scroll-color);
+      font-size: 12px;
+      letter-spacing: 2px;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator .mouse {
+      width: 24px;
+      height: 38px;
+      border: 2px solid var(--mouse-border);
+      border-radius: 12px;
+      position: relative;
+    }
+    .scroll-indicator .mouse::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 8px;
+      background: #7c3aed;
+      border-radius: 2px;
+      animation: scrollWheel 1.5s ease infinite;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 100px max(60px, calc((100vw - 1200px)/2));
+      transition: background 0.6s ease;
+    }
+    .section-label {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 50px;
+      background: rgba(124, 58, 237, 0.12);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      color: #7c3aed;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 600px;
+      margin-bottom: 50px;
+      line-height: 1.7;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .about-image {
+      position: relative;
+    }
+    .about-image .avatar {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 1;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 120px;
+      color: rgba(255,255,255,0.2);
+      animation: morphBlob 8s ease-in-out infinite;
+      margin: 0 auto;
+      object-fit: cover;
+      box-shadow: 0 20px 60px rgba(124, 58, 237, 0.25);
+    }
+    .about-image .avatar i {
+      -webkit-text-fill-color: rgba(255,255,255,0.25);
+      filter: drop-shadow(0 0 20px rgba(124,58,237,0.3));
+    }
+    .about-text h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .about-text .tagline {
+      color: #7c3aed;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .about-text p {
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+
+    .exp-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .exp-item:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(124, 58, 237, 0.15);
+    }
+    .exp-item .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+    .exp-item .exp-title {
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .exp-item .exp-company {
+      color: #7c3aed;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .exp-item .exp-date {
+      color: var(--text-muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .exp-item .exp-desc {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+    .exp-item .exp-desc ul {
+      list-style: disc;
+      margin: 4px 0 0 18px;
+      padding: 0;
+    }
+    .exp-item .exp-desc ul li {
+      margin-bottom: 4px;
+    }
+    .exp-item .exp-desc ul li:last-child {
+      margin-bottom: 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+    }
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 16px;
+      text-align: center;
+      transition: all 0.4s;
+      cursor: default;
+      position: relative;
+    }
+    .skill-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      box-shadow: 0 20px 60px var(--card-shadow);
+    }
+    .skill-card i {
+      font-size: 36px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .skill-card .name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .skill-card .level {
+      margin-top: 10px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .skill-card .level .fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #7c3aed, #ec4899);
+      width: 0;
+      transition: width 1s ease;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s;
+      position: relative;
+    }
+    .project-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 20px 60px var(--card-shadow);
+    }
+    .project-thumb {
+      height: 180px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(255,101,132,0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      color: rgba(124,58,237,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover .project-thumb img {
+      transform: scale(1.05);
+    }
+    .project-thumb i {
+      position: relative;
+      z-index: 1;
+    }
+    .project-body {
+      padding: 24px;
+    }
+    .project-body h4 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+    .project-body .tech {
+      color: #7c3aed;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .project-body p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .project-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .project-tags span {
+      padding: 3px 10px;
+      border-radius: 50px;
+      background: rgba(124, 58, 237, 0.1);
+      color: #7c3aed;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .project-links {
+      margin-top: 14px;
+      display: flex;
+      gap: 14px;
+    }
+    .project-links a {
+      color: var(--text-nav);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .project-links a:hover { color: #7c3aed; }
+
+    .awards-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .award-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .award-item:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(124, 58, 237, 0.15);
+    }
+    .award-item .award-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(124, 58, 237, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f59e0b;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .award-item .award-text {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    .contact-info p {
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .contact-item .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid rgba(124, 58, 237, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7c3aed;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .contact-item .info label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .contact-item .info span {
+      display: block;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .contact-item .info a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-item .info a:hover { color: #7c3aed; }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .social-links a {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--social-bg);
+      border: 1px solid var(--social-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-nav);
+      font-size: 20px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social-links a:hover {
+      background: rgba(124, 58, 237, 0.15);
+      border-color: rgba(124, 58, 237, 0.3);
+      color: var(--text-nav-hover);
+      transform: translateY(-4px);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 16px 20px;
+      border-radius: 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #7c3aed;
+      background: var(--input-focus-bg);
+    }
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .contact-form button {
+      align-self: flex-start;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--footer-border);
+      color: var(--footer-text);
+      font-size: 14px;
+      background: rgba(124, 58, 237, 0.12);
+    }
+    footer .heart { color: #ec4899; }
+
+    #about { background: linear-gradient(180deg, rgba(124, 58, 237, 0.12) 0%, transparent 50%); }
+    #about::before { background: linear-gradient(90deg, #7c3aed, transparent); }
+    #experience { background: linear-gradient(180deg, rgba(236, 72, 153, 0.12) 0%, transparent 50%); }
+    #experience::before { background: linear-gradient(90deg, #ec4899, transparent); }
+    #awards { background: linear-gradient(180deg, rgba(245, 158, 11, 0.14) 0%, transparent 50%); }
+    #awards::before { background: linear-gradient(90deg, #f59e0b, transparent); }
+    #skills { background: linear-gradient(180deg, rgba(124, 58, 237, 0.18) 0%, transparent 50%); }
+    #skills::before { background: linear-gradient(90deg, #7c3aed, transparent); }
+    #projects { background: linear-gradient(180deg, rgba(59, 130, 246, 0.12) 0%, transparent 50%); }
+    #projects::before { background: linear-gradient(90deg, #3b82f6, transparent); }
+    #contact { background: linear-gradient(180deg, rgba(124, 58, 237, 0.08) 0%, transparent 50%); }
+    #contact::before { background: linear-gradient(90deg, #7c3aed, transparent); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+    @keyframes scrollWheel {
+      0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    }
+    @keyframes morphBlob {
+      0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+      25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+      50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+      75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      nav.scrolled { padding: 10px 24px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 12px; }
+      section { padding: 60px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-image .avatar { max-width: 220px; font-size: 80px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-buttons .btn { padding: 12px 24px; font-size: 13px; }
+      .exp-item .exp-header { flex-direction: column; gap: 4px; }
+    }
+  </style>
 </head>
-
 <body>
-    <!--===== HEADER =====-->
-    <header class="l-header">
-        <nav class="nav bd-grid">
-            <div>
-                <a href="#" class="nav__logo">Gul Hassan</a>
-            </div>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#achiements" class="nav__link">Resume</a></li>
-                    <li class="nav__item"><a href="#portfolio" class="nav__link ">Projects</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    <li class=" nav__item">
-                        <a href="https://drive.google.com/file/d/1_wfWy0xlavLQyc4w7wK6M0XvNmI1Ejdz/view?usp=sharing"
-                            class=" download__cv" target="_blank">CV <i class='bx bxs-download bx-tada'></i></a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
-            </div>
-        </nav>
-    </header>
-
-    <main class="l-main">
-
-        <!--===== HOME =====-->
-        <section class="home" id="home">
-            <div class="home__container bd-grid">
-                <h1 class="home__title"><span>HE</span><br>LLO.</h1>
-
-                <h2 class="ml" style="color: white; padding-left: 10px;">I'M MACHINE LEARNING ENGINEER</h2>
-
-                <div class="home__scroll">
-                    <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt'></i>Scroll down</a>
-                </div>
-                <img src="assets/img/profileimg.png" alt="" class="home__img">
-            </div>
-        </section>
-
-        <!--===== ABOUT =====-->
-        <section class="about section" id="about">
-            <h2 class="section-title"> <i class='bx bxs-user '></i> <span></span>About</h2>
-
-            <div class="about__container bd-grid">
-                <div class="about__img">
-                    <img src="assets/img/Hassan.JPG" alt="">
-                </div>
-
-                <div>
-                    <h3 class="about__subtitle">I'm Gul Hassan</h3>
-                    <!-- Element to contain animated typing -->
-                    <span class="ani" id="typing-animation" style="color: rgba(0, 0, 0, 0.69); "></span>
-
-                    <script>
-
-                        // Initialize the typing animation
-                        const typingAnimationElement = document.getElementById('typing-animation');
-
-                        // Create an array of typing text
-                        const typingTexts = [
-                            'Machine learning engineer  ',
-                            'Deep learning engineer  ',
-                            'Coder on LeetCode ',
-                            'Problem solver',
-                            'Artical writer ',
-                            'Critical thinker'
-                        ];
-                        // Create a function to display the typing animation for a given text
-                        function playTypingAnimation(text) {
-                            // Loop through each character and add it to the element
-                            for (let i = 0; i < text.length; i++) {
-                                setTimeout(() => {
-                                    typingAnimationElement.textContent += text[i];
-                                }, i * 100); // Increase the delay to slow down the typing animation
-                            }
-
-                            // Once the animation is complete, toggle the cursor visibility
-                            setTimeout(() => {
-                                toggleCursor();
-                            }, text.length * 120);
-
-                            // Function to toggle cursor visibility
-                            function toggleCursor() {
-                                if (typingAnimationElement.textContent.endsWith('|')) {
-                                    typingAnimationElement.textContent = typingAnimationElement.textContent.slice(0, -1);
-                                } else {
-                                    typingAnimationElement.textContent += '|';
-                                }
-                            }
-
-                            // Restart the typing animation loop
-                            setTimeout(() => {
-                                typingAnimationElement.textContent = ''; // Clear the text
-                                playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]); // Start over with the next text
-                            }, (text.length + 1) * 120); // Wait for text to be fully typed before restarting
-                        }
-
-                        // Start the typing animation loop
-                        playTypingAnimation(typingTexts[0]);
-
-                    </script>
-
-                    <br>
-                    <br>
-                    <p class="about__text">
-                        I am a fresh graduate of Information Technology on merit-based scholersip. As an AI enthusiast, it's quite fascinating to solve
-                        real-world problems using <b>Machine Learning</b> and <b>Deep Learing</b> for good.
-                        <br><br>
-                        Driven by this passion for applying Machine Learning and Deep Learning to solve real-world problems.
-                         I've honed my skills through personal projects, LeetCode challenges, and technical article writing. 
-                         My active participation in international hackathons (3 awards) showcases my strong leadership, 
-                         communication, and teamwork ability, my experience as a Data Analyst on Fiverr further strengthens my 
-                         practical data analysis expertise.
-                        <br><br>
-                        <h3>Technical Skills, Tools, & Programming</h3>
-                        <b>Skills:</b>  Data analysis, Machine learning, Deep learning, Natural Language processing, Data structures and algorithms.
-                        <br>
-
-                        <b>Programming languages: </b>
-                        Python, Flask, C++, Javascript, PHP.
-                        <br>
-                        <b>Tools: </b>
-                        Google spreadsheets, Git and Github, VS code, Google Colab, Anaconda.
-                        <br>
-                        <b>Operating system: </b>
-                        Ubuntu, Kali Linux,  Windows.
-
-                    </p>
-                    <br>
-                    <div class="about__social">
-                        <a href="https://www.linkedin.com/in/gul-hassan-7b188b202/" class="" target="_blank"><i class='about__social-icon bx bxl-linkedin bx-tada-hover'
-                                style="font-size: 25px;"></i></a>
-                        <a href="https://github.com/Gulhassan786" class="" target="_blank"><i class='about__social-icon bx bxl-github bx-tada-hover'
-                                style="font-size: 25px;"></i></a>
-                        <a href="https://medium.com/@gulhassanh49" class="" style="font-size: 25px;" target="_blank"><i class='about__social-icon bx bxl-medium bx-tada-hover'></i></a>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <a href="https://drive.google.com/file/d/1_wfWy0xlavLQyc4w7wK6M0XvNmI1Ejdz/view?usp=sharing"
-                target="_blank"> <button class="contact__button">CV 
-                    <i class='bx bxs-download bx-tada'style="font-size: 18px;"></i> </button></a>
-
-        </section>
-
-        <!-- Achivements section -->
-        <section class="about section" id="achiements">
-            <h2 class="section-title"><i class="bx bxs-award " ></i>Achievements</h2>
-            <div class="about__container bd-grid">
-
-                <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada"></i>FYP (2nd Place)
-                    </h2>
-                    <div class="row hack" style="display:block;">
-                        <div class="col">
-                            <span style="color: #5965e9; text-align: left;">University Of Sindh</span>
-                        </div>
-                        <div class="col"> <span style="color: #5965e9; text-align:right;">Jan’24 —  Feb’24</span></div>
-                    </div>
-                   
-                    <p class="about__text">
-                        <ol>
-                            <li>Achieved <b>#2 Ranking</b> in final year project (FYP) in 100+ participants, 30+ FYP’s.</li>
-                            <br>
-                        <p> <i>Note! check details of FYP below in projects section.</i></p>
-                        </ol>
-                       
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada"></i>Finalist (2 place)
-                    </h2>
-                    <div class="row hack" style="display:block;">
-                        <div class="col">
-                            <span style="color: #5965e9; text-align: left;">WorldInnovationDay Hack</span>
-                        </div>
-                        <div class="col"> <span style="color: #5965e9; text-align:right;">Apr’22 —  May’22</span></div>
-                    </div>
-                   
-                    <p class="about__text">
-                        <ol>
-                           <li> Analyzed disaster data (floods, tornadoes, landslides) using Numpy, Pandas, Matplotlib, and Seaborn, leveraging Google Sheets for data management.
-                        </li> <br>
-                        <li>Created impactful reports revealing trends and the human cost of disasters, highlighting the number of people severely and partially affected.</li>
-                        </ol>
-                    </p>
-
-                    <div class="row" style="display:flex;">
-                        <div class="col-6">
-                            <a href="https://www.youtube.com/live/PekZczFhDi4?si=MWKkObYGxrnk0Oyy&t=1630" target="_blank" rel="noopener noreferrer">
-                                <abbr title="Pitch of the project"><i class="about__social-icon bx bxs-videos bx-tada-hover" ></i>
-                            </a>
-                        </div>
-                        <!-- <div class="col-4">
-                            <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
-                        </div> -->
-                        <div class="col-6">
-                           <abbr title="Badge from org"> <a href="https://au.badgr.com/public/assertions/5ERL7-jGTMenN76TLHYq6g?identity__email=gulhassanh49@gmail.com" target="_blank">
-                            <i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a></abbr>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- 2nd achivement -->
-                <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>Finalist (3rd place)
-                    </h2>
-                    <div class="row hack" style="display:block;">
-                        <div class="col">
-                            <span style="color: #5965e9; text-align: left;">FormulaAI Hack</span>
-                        </div>
-                        <div class="col"> <span style="color: #5965e9; text-align:right;">Apr’22 —  May’22</span></div>
-                    </div>
-
-                    <p class="about__text" style="margin-top: 10px;">
-                    <ol>
-                        <li>Employed data pre-processing techniques like feature engineering, data imputation, and text preprocessing.</li> <br>
-                        <li>Trained the ML model on historical race data to predict race outcomes based on weather, track characteristics, and past performance.</li>
-                        <!-- <li>Evaluated model performance using Accuracy, F1 score, and Precision and Recall. </li> -->
-                    </ol>  
-                    </p>
-                    
-                    <div class="row" style="display:flex;">
-                        <div class="col-6">
-                            <a href="https://www.youtube.com/watch?v=2yS0BoQS-3Q" target="_blank" rel="noopener noreferrer">
-                               <abbr title="Pitch of the project"><i class="about__social-icon bx bxs-videos bx-tada-hover" ></i></abbr> </a>
-                        </div>
-                        <!-- <div class="col-4">
-                            <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
-                        </div> -->
-                        <div class="col-6">
-                           <abbr title="Badge from org"> <a href="https://au.badgr.com/public/assertions/TeMHvYAKQTaUC5CP2eYBAQ" target="_blank">
-                            <i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a></abbr>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Achievment 3rd -->
-                <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>RunnerUp</h2>
-                    <div class="row hack" style="display:block;">
-                        <div class="col-6">
-                            <span style="color: #5965e9; text-align: center;">WorldInnovationDay Hack</span>
-                        </div>
-                        <div class="col-6"> <span style="color: #5965e9; text-align: center;">Apr’21 —  May’21</span>
-                        </div>
-                    </div>
-                
-                    <p class="about__text">
-                     <ol>
-                        <li>  Leveraged Machine Learning skills and created a model that can take food names, have a fridge at home or not, season, 
-                            food type, food quantity, and number of people, and predict whether food will be wasted or consumed properly. </li>
-                            <br>
-                            <li>Evaluated model performance using F1 score, Cohen's Kappa, and confusion matrix to provide a detailed analysis 
-                                of classification effectiveness and error distribution.</li>
-                     </ol>
-                    </p>
-
-                    <div class="row" style="display:flex;">
-                        <div class="col-6">
-                          <abbr title="Pitch of project">  <a href="https://www.youtube.com/live/EpF-33rksoU?si=fbBiE135TK9aM7jY&t=1525" target="_blank" rel="noopener noreferrer">
-                                <i class="about__social-icon bx bxs-videos bx-tada-hover"></i></a></abbr>
-                        </div>
-                        <!-- <div class="col-4">
-                            <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
-                        </div> -->
-                        <div class="col-6">
-                          <abbr title="Badge from org"> <a href="https://au.badgr.com/public/assertions/Nn9MpxPVRW2-JIJMm2N3vQ?identity__email=gulhassanh49@gmail.com" target="_blank">
-                            <i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a> </abbr>
-                        
-                        </div>
-                    </div>
-                </div>
-
-               
-                <!-- 4th card -->
-
-                <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>Regional Ambassador</h2>
-                    <div class="row hack" style="display:block;">
-                        <div class="col-12">
-                            <span style="color: #5965e9; text-align: center;">Hackmakers</span>
-                        </div>
-                        <div class="col-6"> <span style="color: #5965e9; text-align: center;">Apr’22 —   May’22</span>'
-                       
-                        </div>
-                    </div>
-                
-                    <p class="about__text">
-                        <ol>
-                            <li>Competed against 250+ applicants and secured a position in the top 20 ambassadors with 
-                                <a href="https://www.hackmakers.com/" style="color: #5965e9;">Hackmaker.</a></li> <br>
-                            <li>Consistently ranked among the top 3 of 20 regional ambassadors, surpassing MoU signing targets by 99%.</li> <br>
-                            <li>Secured 6+ strategic partnerships between Hackmakers, universities, student groups, and companies.</li>
-                        </ol>
-                    </p>
-
-                    <div class="row" style="display:flex;">
-                        <div class="col-12">
-                            <a href="https://drive.google.com/file/d/10PXvoPI2t7wQfN18Q0VT_nKr1Rac9fTN/view?usp=sharing" target="_blank"><i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a>
-                        
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>Scholerships</h2>
-                    <div class="row hack" style="display:block;">
-                        <div class="col-12">
-                            <span style="color: #5965e9; text-align: center;">Higher Education Commission (HEC) and Prime Minister (PM)</span>
-                        </div>
-                        <!-- <div class="col-6"> <span style="color: #5965e9; text-align: center;"></span>
-                        </div> -->
-                    </div>
-                
-                    <p class="about__text">
-                        <ol>
-                            <li>Secured merit-based scholarship by HEC</li> <br>
-                            <li>Awarded a laptop as part of the PM's Scheme for ranking in the top 20 of the batch. </li>
-                        </ol>
-                    </p>
-                </div>
-
-
-            </div>
-
-
-             <!-- Portfolio section-->
-        <section class="about section" id="portfolio">
-
-            <h2 class="section-title"><i class="bx bxs-card "></i> <span></span>Projects</h2>
-            <div class="about__container bd-grid">
-                
-
-                <!-- 1st card project -->
-
-                <div class="card">
-
-                    <div class="portfolio__img">
-                        <img src="assets/img/voice.jpg" alt="image showing mic">
-                        <a href="https://drive.google.com/file/d/1QZz4oI83lXkKqG-AcVcJi1IoOvxJVQVf/view?usp=sharing" class="portfolio__link-name" target="_blank" title="Thesis link">
-                        <div class="portfolio__link">
-                            Thesis
-                        </div>
-                    </a>
-                    </div> <br>
-                    <h2 class="about__subtitle"><i class="bx bxs-music bx-tada"></i> <span></span>Bird's voice classification
-                    </h2>
-                    <div class="row hack" style="display:block;">
-                        <div class="col">
-                            <span style="color: #5965e9; text-align: left;">TensorFlow | Pandas | Numpy | Librosa | Flask | HTML | CSS
-
-                            </span>
-                        </div>
-                        
-                    </div>
-                   
-                    <p class="about__text">
-
-                        <ol>
-                            <li>Preprocessed audio with librosa to generate mel spectrograms and extract features for deep learning.</li> <br>
-    <li>Developed a deep CNN using TensorFlow for multi-class image classification, incorporating six convolutional layers with filters ranging from 16 to 1024.</li> <br>
-    <li>Achieved 80% accuracy on test data, evaluated model performance using F1 score, precision, recall, and confusion matrix.</li> <br>
-    <li>Built a Flask web interface with HTML/CSS for user interaction with the classification model.</li>
-                        </ol>
-                        </p>
-
-                  
-                 <abbr title="Thesis link"><a href="https://drive.google.com/file/d/1QZz4oI83lXkKqG-AcVcJi1IoOvxJVQVf/view?usp=sharing" target="_blank"><i class="about__social-icon bx  bx-book" style="font-size: 30px;"></i></a></abbr>
-                </div>
-
-
-                <!-- 2nd project card -->
-
-                <div class="card">
-
-                    <div class="portfolio__img">
-                        <img src="assets/img/sentiment.jpg" alt="">
-                       <abbr title="Click to view code on GitHub">
-                        <a href="https://github.com/Gulhassan786/Sentiment-Analysis" class="portfolio__link-name" target="_blank">
-                            <div class="portfolio__link">
-                               View Code
-                            </div></a>
-                       </abbr>
-    
-                    </div> <br>
-                    <a href="https://github.com/Gulhassan786/Sentiment-Analysis" class="portfolio__link-name" target="_blank"> <h2 class="about__subtitle"><i class="bx bxs-happy bx-tada" ></i> <span></span>Sentiment-Analysis
-                    </h2></a>
-                    <div class="row hack" style="display:block;">
-                        <div class="col">
-                            <span style="color: #5965e9; text-align: left;">Sklearn| Support Vector Machine  | Pandas | Natural Language Toolkit | Streamlit | Metrics | Tfidf | Pickle
-                            </span>
-                        </div>
-                        
-                    </div>
-                   
-                    <p class="about__text">
-                        <ol>
-                            <li>The model predicts sentiment by analyzing linguistic patterns, emotional cues, and contextual features within the text.</li> <br>
-    <li>Developed NLP pipeline using NLTK to optimize text preprocessing and sentiment classification workflows.</li> <br>
-    <li>Utilized TF-IDF vectorizer for feature extraction and implemented an SVM model.</li> <br>
-    <li>Selected Support Vector Machine (SVM) from five machine learning algorithms due to its superior performance, 
-        achieving an accuracy of 0.89, with precision, recall, and F1-scores of 0.89.</li> <br>
-    <li>Created a Streamlit interface for real-time sentiment analysis and deployment.</li>
-                        </ol>
-                        </p>
-
-               <abbr title="Code link on GitHub">   <a href="https://github.com/Gulhassan786/Sentiment-Analysis">
-                <i class="about__social-icon bx bxl-github bx-tada-hover" ></i></a></abbr>
-                <abbr title="Webapp link"> <a href="https://sentiment-detection.streamlit.app/">
-                    <i class="about__social-icon bx bx-globe bx-tada-hover" ></i></a></abbr>
-                </div>
-
-
-                    <!-- 3rd project card -->
-
-                    <div class="card">
-
-                        <div class="portfolio__img">
-                            <img src="assets/img/handdigit.png" alt="">
-                            <abbr title="Click to view code on HuggingFace">
-                                <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation/tree/main" class="portfolio__link-name" target="_blank">
-                                    <div class="portfolio__link">
-                                       View Code
-                                    </div></a>
-                            </abbr>
-        
-                        </div> <br>
-                        <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation/tree/main" class="portfolio__link-name" target="_blank">  <h2 class="about__subtitle"><i class="bx bxs-edit-alt bx-tada" ></i> <span></span> Handwritten digit classification
-                        </h2> </a>
-                        <div class="row hack" style="display:block;">
-                            <div class="col">
-                                <span style="color: #5965e9; text-align: left;">Sklearn| SVM  | Pandas | Streamlit | HuggingFace | Pickle
-                                </span>
-                            </div>
-                            
-                        </div>
-                       
-                        <p class="about__text">
-                            <ol>
-                                <li>Preprocessed the MNIST dataset through normalization and resizing to enhance data quality and
-                                     model performance.</li> <br>
-                                <li>Developed and serialized a Support Vector Machine (SVM) classifier for digit recognition, employing
-                                     robust techniques to optimize accuracy.</li> <br>
-                                <li>Achieved 97.77% accuracy with an SVM classifier on validation data and 97.82% accuracy on 
-                                    test data, with detailed confusion matrices demonstrating high classification performance across digit categories.</li> <br>
-                                <li>Designed and deployed a Streamlit interface for the model, hosting the application on Hugging Face for accessible and interactive digit recognition.</li>
-                            </ol>
-
-                            </p>
-    
-                  <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation/tree/main">
-                    <abbr title="Code link on HuggingFace"> <i class="about__social-icon bx bxl-github bx-tada-hover" ></i></abbr></a>
-                 
-                <abbr title="Webapp link">
-                    <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation"><i class="about__social-icon bx bx-globe bx-tada-hover" ></i></a> 
-                </abbr>  
-
-                    </div>
-    
-               
-
-        </section>
-
-<!-- Education -->
-
-            <h2 class="section-title"><i class="bx bxs-book " ></i>Education</h2>
-            <div class="about__container bd-grid">
-
-                <div class="card">
-                    <h2 class="about__subtitle"><i class="bx bxs-graduation bx-tada" ></i>BS Information Technology </h2>
-                    <div class="row hack" style="display:block;">
-                        <div class="col">
-                            <span style="color: #5965e9; text-align: left;">University Of Sindh</span>
-                        </div>
-                        <div class="col"> <span style="color: #5965e9; text-align:right;">Jan’20  —  Feb’24</span></div>
-                    </div>
-                    <p class="about__text">
-                        <b>GPA 3.35</b> <br>
-                        <br>
-                        <b>Core courses: </b>Computer Vision, Data Science, Discrete Mathematics, Statistics, Linear Algebra, Calculus, DSA, Python, C++, Java, Web development, Android app development, and software engineering.
-                    </p>
-
-                </div>
-
-                <div class="card">
-                    <h2 class="about__subtitle"><i class="bx  bxs-graduation bx-tada" ></i>Higher Secondary School
-                    </h2>
-                    <div class="row hack" style="display:block;">
-                        <div class="col">
-                            <span style="color: #5965e9; text-align: left;">Gov: Ali baba degree college</span>
-                        </div>
-                        <div class="col"> <span style="color: #5965e9; text-align:right;">Jan’20 —  Dec’19</span></div>
-                    </div>
-                    <p class="about__text">
-                        <b>Pre-medical</b> <br>
-                        <!-- <b>Elective courses:</b> Computer Vision, Data Science, DSA, Python, Web development, Android app development, Statistics, Linear Algebra, Calculus, C++, Java, software engineering -->
-                    </p>
-
-                </div>
-
-            </div>
-
-
-                <!-- Experience -->
-
-                <h2 class="section-title"><i class="bx bxs-pin " ></i>Experience</h2>
-                <div class="about__container bd-grid">
-
-                    <div class="card">
-                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>Section Leader in Code in Place
-                        </h2>
-                        <div class="row hack" style="display:block;">
-                            <div class="col">
-                                <span style="color: #5965e9; text-align: left;">Stanford University  </span>
-                            </div>
-                            <div class="col"> <span style="color: #5965e9; text-align:right;">Apr’25 —  Present</span></div>
-                        </div>
-                       
-                        <p class="about__text">
-                           <ol>
-                            <li>Chosen from 2,000+ global applicants to mentor 20,000+ learners in Python programming for Stanford’s largest-ever cohort.</li> <br>
-    <li>Will lead technical discussions on algorithms, debugging, and OOP, collaborating with a teaching team spanning 87 countries.
-</li> <br> 
-                               <li>Joining a diverse, international team to standardize coding pedagogy and troubleshoot technical challenges.</li> <br> 
-                               <li>Contributing to remote learning strategies for large cohorts under Stanford faculty guidance.</li>
-                        </ol>
-                            
-                        </p>
-    
-                    </div>
-    
-                    <div class="card">
-                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>Regional Ambassador
-                        </h2>
-                        <div class="row hack" style="display:block;">
-                            <div class="col">
-                                <span style="color: #5965e9; text-align: left;">Hackmakers</span>
-                            </div>
-                            <div class="col"> <span style="color: #5965e9; text-align:right;">Apr’22 —  May’22</span></div>
-                        </div>
-                       
-                        <p class="about__text">
-                           <ol>
-                            <li>Partnerships were secured through MoUs with over 2 universities, 2 student clubs/organizations, and 2 companies.</li> <br>
-    <li>Collaboration and growth were fostered within the Hackmakers community in Pakistan through strategic partnerships.</li>
-                        </ol>
-                            
-                        </p>
-    
-                    </div>
-
-    
-                    <div class="card">
-                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>Data Analyst
-                        </h2>
-                        <div class="row hack" style="display:block;">
-                            <div class="col">
-                                <span style="color: #5965e9; text-align: left;">Fiverr</span>
-                            </div>
-                            <div class="col"> <span style="color: #5965e9; text-align:right;">Dec’20 —  Dec’21</span></div>
-                        </div>
-                       
-                        <p class="about__text">
-                           <ol>
-                            <li>Partnered with international clients on over 2 analytical projects, providing data-driven insights and solutions.</li> <br>
-                            <li>Developed and maintained interactive dashboards using Google Sheets and Data Studio to track key performance metrics.</li> <br>
-                            <li>Delivered comprehensive reports that identified trends, supported decision-making, and improved business outcomes.</li>
-                           </ol>
-
-                        </p>
-    
-                    </div>
-    
-                    <!-- 2nd achiement -->
-                    <div class="card">
-                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada" ></i>Moderator and Trainer
-                        </h2>
-                        <div class="row hack" style="display:block;">
-                            <div class="col">
-                                <span style="color: #5965e9; text-align: left;">iCode Guru, USA</span>
-                            </div>
-                            <div class="col"> <span style="color: #5965e9; text-align:right;">Dec’20 — June’22</span></div>
-                        </div>
-    
-                        <p class="about__text" style="margin-top: 10px;">
-                            <ol>
-                                <li>Taught 4+ courses on data analysis using Google spreadsheets,<a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo.php?fbid=320120893452731&set=t.100063644695494&type=3" target="_blank"><u> Data Analysis1</u></a>,
-                                     and <a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo/?fbid=285552163576271&set=pb.100063644695494.-2207520000" target="_blank"> <u>Data Analysis2</u></a>.</li> <br>
-    <li>Instructed in a 5-week long <a style="color: #5965e9; text-align: center;" href="https://docs.google.com/spreadsheets/d/1_QuQTw6JIQN6o3yX6sQFysEtSk9nwXxjSCGZOgJY3tk/edit?usp=sharing" target="_blank"> <u>IELTS course</u></a>.</li> <br>
-    <li>Designed and conducted a comprehensive Python course, covering fundamentals to intermediate levels 
-        and incorporating problem-solving techniques from LeetCode.</li> <br>
-    <li>Conducted workshops on Python, Data Analysis, VS Code, Git, and GitHub at iCodeGuru.</li> <br>
-    <li>Managed workshops as a lead, covering areas like Data Structures and Algorithms, 
-        <a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo/?fbid=327509042411855&set=pb.100063644695494.-2207520000" target="_blank"><u>Computer Vision</u></a>, 
-        Machine Learning,
-        <a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo/?fbid=324780862986734&set=pb.100063644695494.-2207520000" target="_blank"><u>Data Manipulation</u></a>,
-         <a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo/?fbid=334381345360019&set=pb.100063644695494.-2207520000" target="_blank"> <u>Data Analysis</u></a>,
-          and  iCodeGuru and the 
-          <a style="color: #5965e9; text-align: center;" href="https://www.usindh.edu.pk/" target="_blank" rel="noopener noreferrer"> <u>University of Sindh</u></a>.</li>
-
-                            </ol>
-
-                           
-                        </p>
-                            
-                    </div>
-
-                </div>
-
-
-
-
-                <h2 class="section-title"><i class='bx  bxs-book-open' ></i> <span></span>MOOCs</h2>
-                <div class="about__container bd-grid">
-                    
-                    <!-- 1st course -->
-                    <div class="card">
-                        <h2 class="about__subtitle"><i class="bx bx-tada bx-book-reader"></i>Stat 453 Introduction to deep learning and generative models</h2>
-                        <div class="row hack" style="display:block;">
-                            <div class="col">
-                                <span style="color: #5965e9; text-align: left;"> <a href="https://pages.stat.wisc.edu/~sraschka/teaching/stat453-ss2020/" style="color: #5965e9;"><u>UW-Madison</u></a></span>
-                            </div>
-                
-                        </div>
-    
-                    </div>
-
-
-                    <!-- 2nd course -->
-
-                    <div class="card">
-                        <h2 class="about__subtitle"><i class="bx bx-tada bx-book-reader"></i>Prompt Engineering</h2>
-                        <div class="row hack" style="display:block;">
-                            <div class="col">
-                                <span style="color: #5965e9; text-align: left;"> <a href="https://www.deeplearning.ai/" style="color: #5965e9;"><u>deeplearning.ai</u></a></span>
-                            </div>
-                
-                        </div>
-    
-                    </div>
-                
-                    <!-- 3rd course -->
-
-                    <div class="card">
-                        <h2 class="about__subtitle"><i class="bx bx-tada bx-book-reader"></i>Machine Learning</h2>
-                        <div class="row hack" style="display:block;">
-                            <div class="col">
-                                <span style="color: #5965e9; text-align: left;"> Youtube, iCodeGuru, Kaggle</span>
-                            </div>
-                
-                        </div>
-    
-                    </div>
-
-        </section>
-
-
-
-
-
-        <!--===== SKILLS =====-->
-        <!-- <section class="skills section" id="skills">
-            <h2 class="section-title">Skills</h2>
-
-            <div class="skills__container bd-grid">
-                <div class="skills__box">
-                    <h3 class="skills__subtitle">Development</h3>
-                    <span class="skills__name">Html</span>
-                    <span class="skills__name">Css</span>
-                    <span class="skills__name">Javascript</span>
-                    <span class="skills__name">Scss</span>
-                    <span class="skills__name">React</span>
-                    <span class="skills__name">Vue</span>
-
-                    <h3 class="skills__subtitle">Design</h3>
-                    <span class="skills__name">Figma</span>
-                    <span class="skills__name">Adobe XD</span>
-                    <span class="skills__name">Photoshop</span>
-
-                </div>
-
-                <div class="skills__img">
-                    <img src="assets/img/skill.jpg" alt="">
-                </div>
-            </div>
-        </section> -->
-
-        <!--===== PORTFOLIO =====-->
-        <!-- <section class="portfolio section" id="portfolio">
-            <h2 class="section-title">Portfolio</h2>
-
-            <div class="portfolio__container bd-grid">
-                <div class="portfolio__img">
-                    <img src="assets/img/work1.jpg" alt="">
-
-                    <div class="portfolio__link">
-                        <a href="#" class="portfolio__link-name">View details</a>
-                    </div>
-
-                </div>
-                <div class="portfolio__img">
-                    <img src="assets/img/work2.jpg" alt="">
-
-                    <div class="portfolio__link">
-                        <a href="#" class="portfolio__link-name">View details</a>
-                    </div>
-                </div>
-                <div class="portfolio__img">
-                    <img src="assets/img/work3.jpg" alt="">
-
-                    <div class="portfolio__link">
-                        <a href="#" class="portfolio__link-name">View details</a>
-                    </div>
-                </div>
-                <div class="portfolio__img">
-                    <img src="assets/img/work4.jpg" alt="">
-
-                    <div class="portfolio__link">
-                        <a href="#" class="portfolio__link-name">View details</a>
-                    </div>
-                </div>
-                <div class="portfolio__img">
-                    <img src="assets/img/work5.jpg" alt="">
-
-                    <div class="portfolio__link">
-                        <a href="#" class="portfolio__link-name">View details</a>
-                    </div>
-                </div>
-                <div class="portfolio__img">
-                    <img src="assets/img/work6.jpg" alt="">
-
-                    <div class="portfolio__link">
-                        <a href="#" class="portfolio__link-name">View details</a>
-                    </div>
-                </div>
-            </div>
-        </section>
- -->
-
-
-
-        <!--===== CONTACT =====-->
-        <section class="contact section" id="contact">
-            <h2 class="section-title"><i class='bx bxs-contact '></i> <span></span>Contact</h2>
-
-            <div class="contact__container bd-grid">
-                <div class="contact__info">
-                    <h3 class="contact__subtitle"><i class='bx bxs-envelope bx-tada' style="font-size: 20px;"> </i> <span></span>EMAIL</h3>
-                   <a href="mailto:gul.hassan.h43@gmail.com"><span class="contact__text"><u>gul.hassan.h43@gmail.com</u></span></a>
-
-                    <h3 class="contact__subtitle"><i class='bx bxs-phone bx-tada' style="font-size: 20px;"></i> <span></span>PHONE</h3>
-                    <span class="contact__text">+92 (348) 2920 106</span>
-
-                    <h3 class="contact__subtitle"><i class='bx bxs-home bx-tada'style="font-size: 20px;"></i> <span></span>ADRESS</h3>
-                    <span class="contact__text">Sindh,Pakistan</span>
-                </div>
-
-                <div class="contact__form">
-                    <form id="FORM_ID" method="POST" class="contact__form"
-                        action="https://script.google.com/macros/s/AKfycbwbcQoptyB7GFCE7in7064vo9gbSvKjoucA_vE-y4UtvKFecME7X0gZtCQAl5lxzdZH/exec">
-
-                        <input id="Name" type="text" placeholder="Name" name="Name" class="contact__input" required>
-                        <input id="Email" type="email" placeholder="Email" name="Email" class="contact__input" required>
-
-                        <textarea id="Message" name="Message" rows="10" class="contact__input"></textarea>
-                        <button type="submit" class="contact__button"><i class='about__social-icon bx bx-send bx-tada'></i></button>
-                    </form>
-
-                    <script type="text/javascript">
-                        window.addEventListener("DOMContentLoaded", function () {
-                            const yourForm = document.getElementById('FORM_ID');
-                            if (yourForm) {
-                                yourForm.addEventListener("submit", function (e) {
-                                    e.preventDefault();
-                                    const data = new FormData(yourForm);
-                                    const action = e.target.action;
-                                    fetch(action, {
-                                        method: 'POST',
-                                        body: data,
-                                    })
-                                        .then(response => {
-                                            if (response.ok) {
-                                                // Reset form fields
-                                                yourForm.reset();
-                                                alert("Form submitted successfully!");
-                                            } else {
-                                                alert("Failed to submit form. Please try again.");
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('Error:', error);
-                                            showAlert("Sent sucessfuly!");
-                                            yourForm.reset();
-                                        });
-                                });
-                            } else {
-                                console.error('Form element with ID "FORM_ID" not found.');
-                            }
-                        });
-
-                        function showAlert(message) {
-                            const alertElement = document.createElement('div');
-                            alertElement.classList.add('alert');
-                            alertElement.textContent = message;
-                            document.body.appendChild(alertElement);
-
-                            // Automatically dismiss the alert after 3 seconds (3000 milliseconds)
-                            setTimeout(function () {
-                                if (alertElement) {
-                                    alertElement.remove();
-                                }
-                            }, 6000);
-                        }
-
-                    </script>
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-    </main>
-
-    <!--===== FOOTER =====-->
-    <footer class="footer section">
-        <div class="footer__container bd-grid">
-            <div class="footer__data">
-                <h2 class="footer__title">GUL HASSAN</h2>
-
-                <p class="footer__text">I'm Gul Hassan and this is my personal website</p>
-            </div>
-
-            <div class="footer__data">
-                <h2 class="footer__title">EXPLORE</h2>
-                <ul>
-                    <li><a href="#home" class="footer__link">Home</a></li>
-                    <li><a href="#about" class="footer__link">About</a></li>
-                    <li><a href="#achiements" class="footer__link">Resume</a></li>
-                    <li><a href="#portfolio" class="footer__link">Projects</a></li>
-                    <li><a href="#Contact" class="footer__link">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__data">
-                <h2 class="footer__title">FOLLOW</h2>
-                <a href="https://www.linkedin.com/in/gul-hassan-7b188b202/" class="footer__social" target="_blank"><i class='bx bxl-linkedin bx-tada-hover'></i></a>
-                <a href="https://github.com/Gulhassan786" class="footer__social" target="_blank"><i class='bx bxl-github bx-tada-hover'></i></a>
-                <a href="https://medium.com/@gulhassanh49"  class="footer__social" style="font-size: 25px;" target="_blank"><i class='bx bxl-medium bx-tada-hover'></i></a>
-            </div>
-            <!-- Copyright section -->
-            <div class="footer__copyright">
-                <p class="footer__text">&copy; 2024 Gul Hassan. All rights reserved.</p>
-            </div>
-
+  <div id="progress-bar"></div>
+
+  <nav id="navbar">
+    <div class="logo"><img src="assets/img/new.jpg" alt="Gul Hassan" /><span>Gul Hassan</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#awards">Achievements</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="fas fa-moon"></i></button></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <img src="assets/img/new.jpg" alt="Gul Hassan" class="hero-avatar" onerror="this.style.display='none';document.getElementById('avatarFallback').style.display='flex';">
+    <div class="hero-avatar-placeholder" id="avatarFallback" style="display:none"><i class="fas fa-user-astronaut"></i></div>
+    <h1>Hi, I'm <span>Gul Hassan</span></h1>
+    <div class="typewriter" id="typewriter"></div>
+    <div class="scroll-indicator">
+      <div class="mouse"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="reveal">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Who I Am</h2>
+      <p class="section-sub">A passionate AI/ML engineer and full-stack developer building impactful solutions.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img class="avatar" src="assets/img/Hassan.JPG" alt="Gul Hassan" onerror="this.style.display='none';document.getElementById('aboutFallback').style.display='flex'">
+        <div class="avatar" id="aboutFallback" style="display:none">
+          <i class="fas fa-user-astronaut"></i>
         </div>
+      </div>
+      <div class="about-text reveal">
+        <h3>Turning data into decisions, code into impact.</h3>
+        <div class="tagline">BS Information Technology | University of Sindh, Jamshoro</div>
+        <p>
+          I'm an AI/ML engineer and full-stack developer with a strong foundation in deep learning,
+          computer vision, and data science. I hold a BS in Information Technology from the University of Sindh
+          (GPA 3.35) and have experience building production-ready ML systems, web apps, and automated testing pipelines.
+          I was selected as a Section Leader for Stanford's Code in Place in 2025 and again for 2026, and have won multiple hackathons.
+        </p>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">BS Information Technology</div>
+            <div class="exp-date">Jan 2020 - Feb 2024</div>
+          </div>
+          <div class="exp-company">University of Sindh, Jamshoro</div>
+          <div class="exp-desc">GPA 3.35 &bull; Core: Computer Vision, Data Science, Discrete Mathematics, Statistics, Linear Algebra, Calculus, DSA, Python, C++, Java, Web Development, Android App Development, Software Engineering</div>
+        </div>
+        <div class="exp-item" style="margin-bottom:0;">
+          <div class="exp-header">
+            <div class="exp-title">Certifications &amp; MOOCs</div>
+          </div>
+          <div class="exp-desc">Stat 453: Introduction to Deep Learning and Generative Models (UW-Madison) &bull; Prompt Engineering (deeplearning.ai) &bull; Machine Learning</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Copyright section -->
-    <!-- <div class="footer__copyright">
-        <p>&copy; 2024 Gul Hassan. All rights reserved.</p>
-    </div> -->
+  <section id="experience">
+    <div class="reveal">
+      <div class="section-label">Experience</div>
+      <h2 class="section-title">Where I've Worked</h2>
+      <p class="section-sub">Professional and volunteer roles that shaped my career.</p>
+    </div>
+    <div class="reveal">
+      <div class="exp-item tilt-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Graduate Engineer</div>
+            <div class="exp-company">Neural Lab, Singapore</div>
+          </div>
+          <div class="exp-date">July 2025 - Present</div>
+        </div>
+        <div class="exp-desc">
+          <ul>
+            <li>Designed and executed regression test suites to validate critical updates for OpsAssist, an airport operations platform in its testing phase.</li>
+            <li>Automated regression workflows using Selenium and Appium, and leveraged AI-driven testing techniques to optimize efficiency.</li>
+            <li>Collaborated with developers to detect, document, and resolve defects, supporting readiness for large-scale operational rollout.</li>
+            <li>Transitioned into backend development, managing databases and data processing pipelines on AWS and Huawei Cloud.</li>
+            <li>Built and maintained GraphQL APIs to support core platform functionality.</li>
+            <li>Contributed to a task generation system and an AI-driven model for optimal task assignment, deploying ML models in production.</li>
+          </ul>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="exp-item tilt-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Section Leader</div>
+            <div class="exp-company">Code in Place - Stanford University</div>
+          </div>
+          <div class="exp-date">Oct 2026 - Present</div>
+        </div>
+        <div class="exp-desc">
+          <ul>
+            <li>Selected again as a Section Leader for Stanford's Code in Place 2026.</li>
+            <li>Teaching Python to a global cohort and leading technical discussions on algorithms, debugging, and OOP.</li>
+          </ul>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="exp-item tilt-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Section Leader</div>
+            <div class="exp-company">Code in Place - Stanford University</div>
+          </div>
+          <div class="exp-date">Apr 2025 - May 2025</div>
+        </div>
+        <div class="exp-desc">
+          <ul>
+            <li>Chosen from 2,000+ global applicants to teach Python to Stanford's largest-ever cohort of 20,000 learners.</li>
+            <li>Led technical discussions on algorithms, debugging, and OOP alongside Stanford faculty and a teaching team spanning 180 countries.</li>
+            <li>Contributed to standardizing coding pedagogy and remote learning strategies for large cohorts.</li>
+          </ul>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="exp-item tilt-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Moderator & Trainer</div>
+            <div class="exp-company">iCode Guru, USA</div>
+          </div>
+          <div class="exp-date">Dec 2020 - Jun 2022</div>
+        </div>
+        <div class="exp-desc">
+          <ul>
+            <li>Taught 4+ courses on data analysis (Google Sheets, Data Analysis 1 &amp; 2) and a 5-week IELTS course.</li>
+            <li>Designed and conducted a comprehensive Python course, covering fundamentals to intermediate levels.</li>
+            <li>Conducted workshops on Python, Data Analysis, VS Code, Git, and GitHub.</li>
+            <li>Managed workshops as a lead on DSA, Computer Vision, Machine Learning, and Exploratory Data Analysis.</li>
+          </ul>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="exp-item tilt-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Regional Ambassador (Pakistan)</div>
+            <div class="exp-company">Hackmackers</div>
+          </div>
+          <div class="exp-date">Apr 2022 - May 2022</div>
+        </div>
+        <div class="exp-desc">
+          <ul>
+            <li>Secured MoU partnerships with 2+ universities, student organizations, and companies.</li>
+            <li>Ranked among the top 3 of 20 regional ambassadors, surpassing MoU signing targets by 99%.</li>
+            <li>Fostered community growth through strategic partnerships in Pakistan.</li>
+          </ul>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="exp-item tilt-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Data Analyst</div>
+            <div class="exp-company">Fiverr</div>
+          </div>
+          <div class="exp-date">Dec 2020 - Dec 2021</div>
+        </div>
+        <div class="exp-desc">
+          <ul>
+            <li>Partnered with international clients on 20+ analytical projects, providing data-driven insights and solutions.</li>
+            <li>Developed and maintained interactive dashboards using Google Sheets and Data Studio to track key performance metrics.</li>
+            <li>Delivered comprehensive reports that identified trends and supported business decision-making.</li>
+          </ul>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+    </div>
+  </section>
 
-    </footer>
+  <section id="awards">
+    <div class="reveal">
+      <div class="section-label">Awards</div>
+      <h2 class="section-title">Achievements</h2>
+      <p class="section-sub">Recognition and milestones throughout my journey.</p>
+    </div>
+    <div class="awards-list reveal">
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-star"></i></div>
+        <div class="award-text"><strong>Stanford Code in Place 2026</strong> &mdash; Selected again as Section Leader</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>Stanford Code in Place</strong> &mdash; Selected as Section Leader 2025</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>CS50x Puzzle Day</strong> &mdash; Winner, organized by Harvard</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>World Innovation Day Hackathon</strong> &mdash; 2nd Prize Finalist</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>World Innovation Day Hackathon</strong> &mdash; Runner-Up</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>Regional Ambassador</strong> &mdash; World Innovation Day Hackathon (top 20 of 250+ applicants)</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>Formula AI Hackathon</strong> &mdash; 3rd Prize Finalist</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>FYP Ranking</strong> &mdash; #2 out of 100+ participants, 30+ FYPs</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>IELTS</strong> &mdash; 7 Bands</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>HEC Merit Scholarship</strong> &mdash; Higher Education Commission</div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="award-item tilt-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-text"><strong>Prime Minister's Scheme</strong> &mdash; Laptop award, top 20 of batch</div>
+        <div class="tilt-glow"></div>
+      </div>
+    </div>
+  </section>
 
+  <section id="skills">
+    <div class="reveal">
+      <div class="section-label">Skills</div>
+      <h2 class="section-title">My Toolkit</h2>
+      <p class="section-sub">Technologies and tools I work with.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal tilt-card"><i class="fab fa-python"></i><div class="name">Python</div><div class="level"><div class="fill" data-width="95"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fab fa-js"></i><div class="name">JavaScript</div><div class="level"><div class="fill" data-width="80"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fab fa-cuttlefish"></i><div class="name">C++</div><div class="level"><div class="fill" data-width="75"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fas fa-brain"></i><div class="name">Machine Learning</div><div class="level"><div class="fill" data-width="90"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fas fa-network-wired"></i><div class="name">Deep Learning</div><div class="level"><div class="fill" data-width="85"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fas fa-eye"></i><div class="name">Computer Vision</div><div class="level"><div class="fill" data-width="85"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fas fa-chart-bar"></i><div class="name">Data Analysis</div><div class="level"><div class="fill" data-width="90"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fas fa-database"></i><div class="name">SQL</div><div class="level"><div class="fill" data-width="70"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fab fa-html5"></i><div class="name">HTML/CSS</div><div class="level"><div class="fill" data-width="85"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fas fa-flask"></i><div class="name">Flask</div><div class="level"><div class="fill" data-width="80"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fab fa-git-alt"></i><div class="name">Git/GitHub</div><div class="level"><div class="fill" data-width="85"></div></div><div class="tilt-glow"></div></div>
+      <div class="skill-card reveal tilt-card"><i class="fas fa-vial"></i><div class="name">Selenium/Appium</div><div class="level"><div class="fill" data-width="75"></div></div><div class="tilt-glow"></div></div>
+    </div>
+  </section>
 
-    <!--===== SCROLL REVEAL =====-->
-    <script src="https://unpkg.com/scrollreveal"></script>
+  <section id="projects">
+    <div class="reveal">
+      <div class="section-label">Projects</div>
+      <h2 class="section-title">Featured Work</h2>
+      <p class="section-sub">AI/ML and full-stack projects I've built.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal tilt-card">
+        <div class="project-thumb"><img src="assets/img/voice.jpg" alt="Bird species acoustic recognition" onerror="this.style.display='none'"><i class="fas fa-dove"></i></div>
+        <div class="project-body">
+          <h4>AI-Based Acoustic Recognition System for Avian Species</h4>
+          <div class="tech">Final Year Project</div>
+          <p>Custom deep CNN with 6 convolutional layers (16-1024 filters). Preprocessed audio via Librosa (mel spectrograms). Achieved 80% test accuracy. Flask web interface for real-time bird sound classification.</p>
+          <div class="project-tags"><span>CNN</span><span>Librosa</span><span>Flask</span><span>Python</span></div>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="project-card reveal tilt-card">
+        <div class="project-thumb"><i class="fas fa-brain"></i></div>
+        <div class="project-body">
+          <h4>Emotion Recognition from EEG Signals</h4>
+          <div class="tech">Deep Learning</div>
+          <p>LSTM-based pipeline for EEG-based emotion recognition with adaptive learning rate scheduler. Achieved 98.2% test accuracy with confusion matrix and F1-score evaluation.</p>
+          <div class="project-tags"><span>LSTM</span><span>TensorFlow</span><span>Scikit-learn</span></div>
+          <div class="project-links"><a href="https://github.com/Gulhassan786/Emotions-classification-using-EEG-LSTM-" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="project-card reveal tilt-card">
+        <div class="project-thumb"><i class="fas fa-x-ray"></i></div>
+        <div class="project-body">
+          <h4>Automated Brain Tumor Detection Using MRI Scans</h4>
+          <div class="tech">Transfer Learning</div>
+          <p>Used EfficientNetB0 with transfer learning on Kaggle MRI dataset. OpenCV preprocessing. Achieved 98% test accuracy validated with precision, recall, and F1-score.</p>
+          <div class="project-tags"><span>EfficientNetB0</span><span>OpenCV</span><span>TensorFlow</span></div>
+          <div class="project-links"><a href="https://github.com/Gulhassan786/brain-tumor-classification-transfer-learning" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="project-card reveal tilt-card">
+        <div class="project-thumb"><img src="assets/img/sentiment.jpg" alt="Sentiment classification" onerror="this.style.display='none'"><i class="fas fa-smile"></i></div>
+        <div class="project-body">
+          <h4>Sentiment Classification with Computational Linguistics</h4>
+          <div class="tech">NLP</div>
+          <p>SVM model selected from 5 algorithms (0.89 F1-score). NLP pipeline for text sentiment preprocessing. Streamlit web interface for real-time prediction.</p>
+          <div class="project-tags"><span>SVM</span><span>NLTK</span><span>Streamlit</span></div>
+          <div class="project-links"><a href="https://github.com/Gulhassan786/Sentiment-Analysis" target="_blank"><i class="fab fa-github"></i> GitHub</a><a href="https://sentiment-detection.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Web App</a></div>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+      <div class="project-card reveal tilt-card">
+        <div class="project-thumb"><img src="assets/img/handdigit.png" alt="Handwritten digit recognition" onerror="this.style.display='none'"><i class="fas fa-pen"></i></div>
+        <div class="project-body">
+          <h4>Intelligent Handwritten Digit Recognition</h4>
+          <div class="tech">Computer Vision</div>
+          <p>MNIST preprocessing via normalization and resizing. SVM classifier achieving 97.82% test accuracy. Deployed on Hugging Face via Streamlit.</p>
+          <div class="project-tags"><span>SVM</span><span>MNIST</span><span>Hugging Face</span></div>
+          <div class="project-links"><a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation" target="_blank"><i class="fas fa-external-link-alt"></i> Web App</a></div>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+    </div>
+  </section>
 
-    <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js"></script>
+  <section id="contact">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-sub">Have a project in mind? Let's make something amazing.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p>I'm always open to new opportunities, collaborations, and interesting projects. Feel free to reach out!</p>
+        <div class="contact-item">
+          <div class="icon"><i class="fas fa-envelope"></i></div>
+          <div class="info">
+            <label>Email</label>
+            <span><a href="mailto:gul.hassan.h43@gmail.com">gul.hassan.h43@gmail.com</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><i class="fas fa-phone"></i></div>
+          <div class="info">
+            <label>Phone</label>
+            <span><a href="tel:+923482920106">+92 (348) 2920 106</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="info">
+            <label>Location</label>
+            <span>Pakistan</span>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/Gulhassan786" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/gul-hassan-7b188b202/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://gulhassan786.github.io/" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
+          <a href="mailto:gul.hassan.h43@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Thanks for reaching out, Gul Hassan will get back to you soon!');">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Subject" />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Gul Hassan. Built with <span class="heart">&hearts;</span> for innovation
+  </footer>
+
+  <script>
+    const phrases = [
+      'AI & Machine Learning Engineer',
+      'Deep Learning Specialist',
+      'Full Stack Developer',
+      'Computer Vision Enthusiast',
+      'Hackathon Champion'
+    ];
+    let phraseIndex = 0, charIndex = 0, isDeleting = false;
+    const tw = document.getElementById('typewriter');
+
+    function typeEffect() {
+      const current = phrases[phraseIndex];
+      if (!isDeleting) {
+        tw.innerHTML = current.substring(0, charIndex + 1) + '<span class="cursor"></span>';
+        charIndex++;
+        if (charIndex === current.length) { isDeleting = true; setTimeout(typeEffect, 2000); return; }
+        setTimeout(typeEffect, 80);
+      } else {
+        tw.innerHTML = current.substring(0, charIndex) + '<span class="cursor"></span>';
+        charIndex--;
+        if (charIndex < 0) { isDeleting = false; charIndex = 0; phraseIndex = (phraseIndex + 1) % phrases.length; setTimeout(typeEffect, 500); return; }
+        setTimeout(typeEffect, 40);
+      }
+    }
+    typeEffect();
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const fill = e.target.querySelector('.fill');
+          if (fill) fill.style.width = fill.dataset.width + '%';
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-card').forEach(c => skillObserver.observe(c));
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      const s = window.scrollY;
+      document.querySelectorAll('.hero h1, .hero .typewriter, .hero .hero-buttons').forEach(el => {
+        el.style.transform = `translateY(${s * 0.15}px)`;
+        el.style.opacity = Math.max(0, 1 - s / 500);
+      });
+      document.querySelector('.scroll-indicator').style.opacity = Math.max(0, 1 - s / 300);
+    });
+
+    // ===== SCROLL PROGRESS BAR =====
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = `${(window.scrollY / h) * 100}%`;
+    });
+
+    // ===== 3D TILT EFFECT =====
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const rotateX = ((y - cy) / cy) * -8;
+        const rotateY = ((x - cx) / cx) * 8;
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02,1.02,1.02)`;
+        const glow = card.querySelector('.tilt-glow');
+        if (glow) glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(124,58,237,0.2), transparent 70%)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+        const glow = card.querySelector('.tilt-glow');
+        if (glow) glow.style.background = '';
+      });
+    });
+
+    // ===== ACTIVE NAV LINK ON SCROLL =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + e.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(s => sectionObserver.observe(s));
+
+    // ===== THEME TOGGLE =====
+    const toggle = document.getElementById('themeToggle');
+    const icon = toggle.querySelector('i');
+    const saved = localStorage.getItem('theme');
+
+    if (saved === 'light') {
+      document.body.setAttribute('data-theme', 'light');
+      icon.className = 'fas fa-sun';
+    }
+
+    toggle.addEventListener('click', () => {
+      const isLight = document.body.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.body.removeAttribute('data-theme');
+        icon.className = 'fas fa-moon';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.setAttribute('data-theme', 'light');
+        icon.className = 'fas fa-sun';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+
 </body>
-
 </html>
